@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "titulo": "O Grande Truque",
+    "genero": "Drama",
+    "ano": 2006,
+    "avaliacao": 5,
+    "descricao": "Dois mágicos rivais competem ferozmente.",
+    "imagem": "https://github.com/jay-ubisse.png"
+  },
+  {
+    "id": 2,
+    "titulo": "Interestelar",
+    "genero": "Ficção científica",
+    "ano": 2014,
+    "avaliacao": 5,
+    "descricao": "Uma jornada através do espaço e do tempo.",
+    "imagem": "https://github.com/jay-ubisse.png"
+  }
+]
