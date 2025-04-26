@@ -11,7 +11,8 @@
 ============== GROUP 2 LOGIC ==========
 
 */
-
+import {updateFilm} from "./update-film.js";
+window.updateFilm=updateFilm;
 /*
 //acredito que foi gerado por uma IA, razao pela qual nao me resposabiliso por nada disso.
 function createForm() {
