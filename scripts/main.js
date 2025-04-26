@@ -12,7 +12,8 @@
 
 */
 
-
+/*
+//acredito que foi gerado por uma IA.
 function createForm() {
 
 
@@ -143,7 +144,7 @@ document.body.prepend(btnShow)
 
 
 //Button para fechar
-
+*/
 /*const btnClose = document.createElement('button')
 btnClose.textContent = 'X';
 btnClose.onclick = closeForm;
