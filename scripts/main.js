@@ -13,7 +13,7 @@
 */
 
 /*
-//acredito que foi gerado por uma IA.
+//acredito que foi gerado por uma IA, razao pela qual nao me resposabiliso por nada disso.
 function createForm() {
 
 
