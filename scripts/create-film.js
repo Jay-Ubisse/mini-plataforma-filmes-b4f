@@ -22,7 +22,60 @@ export function newFilm(){
     return;
  }
  //Moisés Ngovene
- function btnManipulation(){
+// Função para não enviar antes da validação
+form.addEventListener("submit", (event) => {
+   event.preventDefault(); 
 
-    return;
+   const isValid = btnManipulation(InputNameEvent, InputYearEvent);
+   if (isValid) {
+      form.submit();
+    }
+  });
+ // Função de validação dos campos
+ function btnManipulation(nameInput, yearInput) {
+   let validacaoOk = true;
+   let erro = '';
+ 
+   if (nameInput.value === "") {
+     erro = 'O nome do filme é obrigatório';
+     nameInput.classList.add('is-invalid');
+     validacaoOk = false;
+   } else {
+     nameInput.classList.remove('is-invalid');
+   }
+ 
+   if (yearInput.value === "") {
+     if (erro.length > 0) {
+       erro += ', ';
+     }
+     erro += 'O ano do filme é obrigatório';
+     yearInput.classList.add('is-invalid');
+     validacaoOk = false;
+   } else {
+     yearInput.classList.remove('is-invalid');
+   }
+ 
+ // Exibir erro com estilo 
+ const errorDisplay = document.getElementById('errorDisplay');
+ if (errorDisplay) {
+   if (!validacaoOk) {
+     errorDisplay.innerText = erro;
+     errorDisplay.style.display = 'block';
+     errorDisplay.style.color = 'black';
+     errorDisplay.style.backgroundColor = 'red';
+     errorDisplay.style.border = '1px solid #f5c6cb';
+     errorDisplay.style.padding = '10px';
+     errorDisplay.style.marginTop = '10px';
+     errorDisplay.style.borderRadius = '5px';
+   } else {
+     errorDisplay.style.display = 'none';
+   }
+ } else if (!validacaoOk) {
+   alert(erro); 
  }
+
+ return validacaoOk;
+}
+
+
+
