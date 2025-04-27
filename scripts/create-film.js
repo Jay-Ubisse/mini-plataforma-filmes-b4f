@@ -4,7 +4,7 @@ export function newFilm(){
     
     return;
 }
-function addBtn(){
+export function addBtn(){
    const addNewFilm_popup = document.getElementById("add_newFilm_popup");
    const addNewFilmBtn = document.getElementById("add_newFilm_btn");
    const closePopupBtn = document.getElementById("close_popup_btn");
@@ -13,7 +13,7 @@ function addBtn(){
       addNewFilm_popup.style.display= "flex";
    });
    closePopupBtn.addEventListener("click",()=>{
-      addNewFilm_popup.style.display="none";
+      addNewFilm_popup.style="none";
    });
    window.addEventListener("click",(event)=>{
       if(event.target===addNewFilm_popup){
