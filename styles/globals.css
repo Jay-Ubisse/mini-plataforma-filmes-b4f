@@ -5,11 +5,23 @@ body {
   color: #333;
 }
 /*Create Film Style*/
+.add_newFilm_btn{ 
+  position: absolute;
+  top: 150px;
+  right: 20px;
+  width:fit-content;
+  height: fit-content;
+  background-color: #009148;
+  font-size: 30px;
+  cursor: pointer;
+}
+.add_newFilm_btn:hover{
+  background-color: green;
+}
 .add_newFilm_popup{
   display: none;
   position: fixed;
-  width: 100%;
-  height: 100%;
+  inset: 0; 
   background-color: rgba(0, 0, 0, 0.5);
 }
 .add_newFilm_btn{
@@ -23,23 +35,27 @@ body {
    
 }
 .popup-content{
+  position: relative;
   background-color: #fefefe;
   border:1px solid #fefefe ;
   width: 50%;
   border-radius: 5px;
   padding: 20px;
-  margin: 10% auto;
+  margin: 20% auto;
 
 }
-.close_popup{
+.close_popup_btn{
+  position: absolute;
+  top: 10px;
+  right: 10px;
   color: black;
- position: fixed;
   font-size: 32px;
-  font-weight: bold;
+  font-weight: light;
   cursor: pointer;
 }
-.close_popup:hover
-.close_popup:focus{
-  color: red;
+.close_popup_btn:hover,
+.close_popup_btn:focus{
+  color: #c60f0f;
+  font-weight: bold;
   text-decoration: none;
 }
