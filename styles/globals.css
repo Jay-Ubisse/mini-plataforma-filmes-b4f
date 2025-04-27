@@ -28,7 +28,8 @@ body {
   font-weight: bold;
   cursor: pointer;
 }
-.close_popup:hover{
+.close_popup:hover
+.close_popup:focus{
   color: black;
   text-decoration: none;
 }
