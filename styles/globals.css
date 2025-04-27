@@ -24,16 +24,6 @@ body {
   inset: 0; 
   background-color: rgba(0, 0, 0, 0.5);
 }
-.add_newFilm_btn{
-  
-  width:fit-content;
-  height: fit-content;
-  margin-top: 400px;
-  background-color: green;
-  font-size: 30px;
-  cursor: pointer;
-   
-}
 .popup-content{
   position: relative;
   background-color: #fefefe;
