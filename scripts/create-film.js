@@ -39,7 +39,7 @@ export function addBtn(){
  }
  
 // Função para não enviar antes da validação
-form.addEventListener("submit", (event) => {
+ /*form.addEventListener("submit", (event) => {
    event.preventDefault(); 
 
    const isValid = btnManipulation(InputNameEvent, InputYearEvent);
@@ -48,6 +48,7 @@ form.addEventListener("submit", (event) => {
     }
   });
  // Função de validação dos campos
+
  function btnManipulation(nameInput, yearInput) {
    let validacaoOk = true;
    let erro = '';
@@ -91,7 +92,7 @@ form.addEventListener("submit", (event) => {
  }
 
  return validacaoOk;
-}
+}*/
 
 
 
