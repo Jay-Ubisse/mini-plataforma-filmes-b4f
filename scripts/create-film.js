@@ -10,7 +10,7 @@ function addBtn(){
    const closePopupBtn = document.getElementById("close_popup_btn");
 
    addNewFilmBtn.addEventListener("click",()=>{
-      addNewFilm_popup.style.display= "block";
+      addNewFilm_popup.style.display= "flex";
    });
    closePopupBtn.addEventListener("click",()=>{
       addNewFilm_popup.style.display="none";
