@@ -13,21 +13,7 @@ body {
   background-color: rgba(0, 0, 0, 0.5);
 }
 .add_newFilm_btn{
-  display: flex;
-  flex-direction: row;
-  align-self: right;
-  width:fit-content;
-  height: fit-content;
-  margin-top: 400px;
-  background-color: green;
-  font-size: 30px;
-  cursor: pointer;
-   
-}
-.add_newFilm_btn{
-  display: flex;
-  flex-direction: row;
-  align-self: right;
+  
   width:fit-content;
   height: fit-content;
   margin-top: 400px;
