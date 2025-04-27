@@ -1,26 +1,93 @@
 <!DOCTYPE html>
 <html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Mini Plataforma de Filmes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/globals.css" />
+    <script defer type="module" src="scripts/main.js"></script>
+  </head>
+  <body>
 
-<head>
-  <meta charset="UTF-8" />
-  <title>Mini Plataforma de Filmes</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="styles/globals.css" />
-  <script defer type="module" src="scripts/main.js"></script>
-</head>
+    <div class="container">
+    <h1>🎬 Mini Plataforma de Filmes</h1>
+    <form id="formulario">
+     
+    <!--one-->
+    <label for="title">title:</label><br>
+    <input type="text" id="title" name="title"><br>
 
-<body>
-  <h1>🎬 Mini Plataforma de Filmes</h1>
-  <!--Botao para abrir pop up para adicionar novo filme-->
-  <button class="add_newFilm_btn" id="add_newFilm_btn"> Adicionar Novo Filme</button>
-  <section class="add_newFilm_popup" id="add_newFilm_popup">
-    <div class="popup-content">
-      <span class="close_popup_btn" id="close_popup_btn">X</span>
-      <form action="" method="post" id="addFilmForm">
+    <label for="gender">gender:</label><br>
+    <input type="text" id="gender" name="gender"><br>
 
-      </form>
+    <label for="rate">rate( 1 out of 5):</label><br>
+    <input type="number" id="rate" name="rate" max="5" min="1"><br>
+
+    <label for="year">year:</label><br>
+    <input type="number" name="year" id="year"><br>
+    <label for="image">url:</label><br>
+    <input type="text"id="image" name="image"><br>
+
+    <label for="description">description:</label><br>
+    <textarea id="description" name="description"></textarea><br>
+      <!--two-->
+  <label for="title">title:</label><br>
+  <input type="text" id="title" name="title"><br>
+
+  <label for="gender">gender:</label><br>
+  <input type="text" id="gender" name="gender"><br>
+
+  <label for="rate">rate( 1 out of 5):</label><br>
+  <input type="number" id="rate" name="rate" max="5" min="1"><br>
+
+  <label for="year">year:</label><br>
+  <input type="number" name="year" id="year"><br>
+  
+  <label for="image">url:</label><br>
+  <input type="text" id="image" name="image"><br>
+
+  <label for="description">description:</label><br>
+  <textarea id="description" name="description"></textarea><br>
+
+  <!--three-->
+<label for="title">title:</label><br>
+<input type="text" id="title" name="title"><br>
+
+<label for="gender">gender:</label><br>
+<input type="text" id="gender" name="gender"><br>
+
+<label for="rate">rate( 1 out of 5):</label><br>
+<input type="number" id="rate" name="rate" max="5" min="1"><br>
+
+<label for="year">year:</label><br>
+<input type="number" name="year" id="year"><br>
+
+<label for="image">url:</label><br>
+<input type="text" id="image" name="image"><br>
+
+<label for="description">description:</label><br>
+<textarea id="description" name="description"></textarea><br>
+<!--four-->
+<label for="title">title:</label><br>
+<input type="text" id="title" name="title"><br>
+
+<label for="gender">gender:</label><br>
+<input type="text" id="gender" name="gender"><br>
+
+<label for="rate">rate( 1 out of 5):</label><br>
+<input type="number" id="rate" name="rate" max="5" min="1"><br>
+
+<label for="year">year:</label><br>
+<input type="number" name="year" id="year"><br>
+
+<label for="image">url:</label><br>
+<input type="text" id="image" name="image">
+
+<label for="description">description:</label><br>
+<textarea id="description" name="description"></textarea><br>
+
+<button type="submit" id="btn">Register</button>
+    </form>
     </div>
-  </section>
-</body>
-
+  </body>
 </html>
