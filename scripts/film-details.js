@@ -1,15 +1,19 @@
 
-const detailsButton = document.getElementById("btnDatails");
 const detailsDiv = document.getElementById("content");
-const closeButton = document.getElementById("close");
 
-function openModal(){
-  detailsButton.addEventListener("click", () => {
-    detailsDiv.style.display = "block";
-  });
+
+const detailsButton = document.getElementById("detailsButton");
+
+
+const closeButton = document.getElementsByClassName("close")[0];
+
+
+detailsButton.onclick = function() {
+  detailsDiv.style.display = "block";
 }
 
 
-closeButton.addEventListener("click", () => {
+closeButton.onclick = function() {
   detailsDiv.style.display = "none";
-});
+}
+
