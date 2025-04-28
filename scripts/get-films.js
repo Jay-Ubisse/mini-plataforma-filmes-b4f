@@ -1,5 +1,9 @@
 // Função para listar todos os filmes
 
+import {films} from "../data/db.js";
+
+
+
 export function listfilms() {
   window.addEventListener("load", () => {
     listFilms(films)
