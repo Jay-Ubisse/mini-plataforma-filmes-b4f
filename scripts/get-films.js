@@ -43,7 +43,7 @@ function listFilms(films) {
     deleteBtn.classList.add("btn2");
     deleteBtn.textContent = "Delete";
     deleteBtn.addEventListener("click", () => {
-      card.remove();
+      
     }); 
 
     card.appendChild(img);
