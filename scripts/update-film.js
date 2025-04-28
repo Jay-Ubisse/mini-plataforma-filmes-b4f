@@ -10,32 +10,46 @@ form.style.display = 'flex';
 form.style.flexDirection = 'column';
 form.style.padding = '20px';
 form.style.border = '1px solid black';
-form.style.margin = '10% auto'
+form.style.top = '20%';
 form.style.boxShadow = '4px 4px 5px gray';
+form.style.position= 'fixed';
+form.style.left = '50%';
+form.style.zIndex='1000'
 form.innerHTML=`
- <spam onclick="form.style.display='none'" id= "close_button">&times</spam>
-    <label for="title">Title</label>
+ <span id= "close_button">&times</span>
+    <label for="title">Título</label>
  <input type="text" id="title" name="title" required><br>
 
- <label for="Gender">Gender</label>
+ <label for="Gender">Genero</label>
  <input type="text" id= "gender" name="gender" required><br>
  
- <label for="year">year</label>
+ <label for="year">Ano</label>
  <input type="number" id= "year" name="year" required><br>
 
- <label for="rate">rate</label>
+ <label for="rate">Avaliação</label>
  <input type="number"  id="rate" name="rate" required><br>
 
- <label for="description">description</label>
+ <label for="description">Descrição</label>
  <input type="text"  id="description" name="description" required><br>
 
- <label for="imageUrl">imageUrl</label>
+ <label for="imageUrl">Url da Imagem</label>
  <input type="url"  id="imageUrl" name = "imageUrl" required><br>
  <button  id="button" onclick="saveUpdateFilm()">Salvar</button>
  `;
+ //styling the close button
+ const closeButton = form.querySelector("#close_button");
+ closeButton.style.position='absolute';
+ closeButton.style.top='10px'
+ closeButton.style.right='10px'
+ closeButton.style.fontSize='24px'
+ closeButton.style.cursor='pointer'
+ closeButton.style.color='red'
+
  //validar os inputs, estlizar o formulario e guardar alteracoes no BD
 document.body.appendChild(form);
 preFillForm(films[0]);
+
+closeButton.addEventListener('click',()=>{document.body.removeChild(form)});
 }
 
 function preFillForm(films) {
