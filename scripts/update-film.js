@@ -3,27 +3,15 @@ import { films } from "../data/db.js";
 //create form and styling
 export function updateFilm() {
 const form = document.createElement("form");
-<<<<<<< HEAD
 form.style.maxHeight = 'fit-content';
 form.style.maxWidth = 'fit-content'
-=======
-
-form.style.maxHeight = '500px';
-form.style.maxWidth = '500px'
->>>>>>> f1d52a991e8cf8cf0099b3bd2abd4cc3efa902e9
 form.style.backgroundColor = '#D9D9D9';
 form.style.display = 'flex';
 form.style.flexDirection = 'column';
 form.style.padding = '20px';
-<<<<<<< HEAD
 form.style.border = '1px solid black';
 form.style.margin = '10% auto'
 form.style.boxShadow = '4px 4px 5px gray';
-=======
-
-
-
->>>>>>> f1d52a991e8cf8cf0099b3bd2abd4cc3efa902e9
 form.innerHTML=`
  <spam onclick="form.style.display='none'" id= "close_button">&times</spam>
     <label for="title">Title</label>
