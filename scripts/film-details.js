@@ -1,9 +1,9 @@
 // Função para mostrar detalhes de um filme
 
 
+/*
 
-
-/*const mainDiv = document.createElement("div");
+const mainDiv = document.createElement("div");
 
 mainDiv.style.height = "500px";
 mainDiv.style.width = "25%";
@@ -58,9 +58,25 @@ document.body.appendChild(mainDiv);
 
 // Evento abertura do modal
 
+
 // Evento fechamento do modal
 span.onclick = function () {
   modal.style.display = "none";
-};*/
+};
+
+*/
+
+const detailsButton = document.getElementById("btnDatails");
+const detailsDiv = document.getElementById("content");
+const closeButton = document.getElementById("close");
+
+function openModal(){
+  detailsButton.addEventListener("click", () => {
+    detailsDiv.style.display = "none";
+  });
+}
 
 
+closeIcon.addEventListener("click", () => {
+  detailsDiv.style.display = "block";
+});
