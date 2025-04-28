@@ -103,6 +103,95 @@ function saveInDb() {
 
 console.log(saveInDb());
 
+/*-------------------------------------------------------------*/
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById("addFilmForm");
+
+
+  document.getElementById("title").addEventListener("input", validateTitle);
+  document.getElementById("gender").addEventListener("input", validateGender);
+  document.getElementById("rate").addEventListener("input", validateRate);
+  document.getElementById("year").addEventListener("input", validateYear);
+  document.getElementById("image").addEventListener("input", validateImage);
+  document.getElementById("description").addEventListener("input", validateDescription);
+});
+
+function validateTitle() {
+  const titleInput = document.getElementById("title");
+  const errorSpan = document.getElementsByClassName("span-required")[0];
+  
+  if (titleInput.value.trim().length < 3) {
+    errorSpan.style.display = "block";
+    titleInput.style.border = "2px solid red";
+  } else {
+    errorSpan.style.display = "none";
+    titleInput.style.border = "2px solid blue";
+  }
+}
+
+function validateGender() {
+  const genderInput = document.getElementById("gender");
+  const errorSpan1 = document.getElementsByClassName("span-required")[1];
+  if (genderInput.value.trim() === "") {
+    errorSpan1.style.display="block";
+    genderInput.style.border = "2px solid red";
+  } else {
+    errorSpan1.style.display = "none";
+    genderInput.style.border = "2px solid blue";
+  }
+}
+
+function validateRate() {
+  const rateInput = document.getElementById("rate");
+  const errorSpan = document.getElementsByClassName("span-required")[2];
+  if (rateInput.value < 1 || rateInput.value > 5) {
+    errorSpan.style.display = "block";
+    rateInput.style.border = "2px solid red";
+  } else {
+    errorSpan.style.display = "none";
+    rateInput.style.border = "2px solid blue";
+  }
+}
+
+function validateYear() {
+  const yearInput = document.getElementById("year");
+  const errorSpan = document.getElementsByClassName("span-required")[3];
+  if (yearInput.value.trim() === "" || isNaN(yearInput.value)) {
+    errorSpan.style.display = "block";
+    yearInput.style.border = "2px solid red";
+  } else {
+    errorSpan.style.display = "none";
+    yearInput.style.border = "2px solid blue";
+  }
+}
+
+function validateImage() {
+  const imageInput = document.getElementById("image");
+  const errorSpan = document.getElementsByClassName("span-required")[4];
+  if (imageInput.value.trim() === "") {
+    errorSpan.style.display = "block";
+    imageInput.style.border = "2px solid red";
+  } else {
+    errorSpan.style.display = "none";
+    imageInput.style.border = "2px solid blue";
+  }
+}
+
+function validateDescription() {
+  const descriptionInput = document.getElementById("description");
+  const errorSpan = document.getElementsByClassName("span-required")[5];
+  if (descriptionInput.value.trim() === "") {
+    errorSpan.style.display = "block";
+    descriptionInput.style.border = "2px solid red";
+  } else {
+    errorSpan.style.display = "none";
+    descriptionInput.style.border = "2px solid blue";
+  }
+}
+
+
+
+
 // Função para não enviar antes da validação
 /*form.addEventListener("submit", (event) => {
    event.preventDefault(); 
