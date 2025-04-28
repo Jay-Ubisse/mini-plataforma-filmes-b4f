@@ -171,7 +171,6 @@ button {
 .add {
   background-color: var(--button-color);
   position: relative;
-  position: fixed;
   left: 90em;
   bottom: 35em;
 }

@@ -56,7 +56,8 @@ function listFilms(films) {
   });
   return listFilms(films);
 }
-
+/*
 console.log(listFilms(films));
 console.log("Elment conteiner", conteiner);
 console.log("Date of films", films);
+*/
