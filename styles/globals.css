@@ -9,31 +9,34 @@ body {
   position: absolute;
   top: 150px;
   right: 20px;
-  width:fit-content;
+  width:150px;
   height: fit-content;
-  background-color: #009148;
-  font-size: 30px;
+  background-color: #87bba2;
+  font-size: 16px;
   cursor: pointer;
+  border:#87bba2;
+  border-radius: 10px;
 }
 .add_newFilm_btn:hover{
-  background-color: green;
+  background-color: #52b788;
+  font-weight: bolder;
 }
 .add_newFilm_popup{
   display: none;
   position: fixed;
   inset: 0; 
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.3);
 }
 .popup-content{
   position: relative;
-  background-color: #fefefe;
-  border:1px solid #fefefe ;
-  width: 50%;
+  background-color: #ebf2fa;
+  border:1px solid #ebf2fa ;
+  width: 25%;
   border-radius: 5px;
   padding: 20px;
   margin: 20% auto;
-
 }
+
 .close_popup_btn{
   position: absolute;
   top: 10px;
@@ -48,4 +51,19 @@ body {
   color: #c60f0f;
   font-weight: bold;
   text-decoration: none;
+}
+#createFilmBtn{
+  display: fixed;
+  border: none;
+  border-radius: 5px;
+  color: black;
+  background-color: #87bba2;
+  font-size: 19px;
+  font-weight: lighter;
+  cursor: pointer;
+
+}
+#createFilmBtn:hover{
+  background-color: #52b788;
+  font-weight: bolder;
 }
