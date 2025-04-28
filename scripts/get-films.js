@@ -2,13 +2,11 @@
 
 import {films} from "../data/db.js";
 
-localStorage.setItem("films", JSON.stringify(films));
+
 
 export function listfilms() {
   window.addEventListener("load", () => {
-    let db = localStorage.getItem("films");
-    let jsonDB = JSON.parse(db);
-    listFilms(jsonDB);
+    listFilms(films)
   });
 }
 
