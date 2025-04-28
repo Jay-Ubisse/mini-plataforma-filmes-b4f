@@ -1,6 +1,6 @@
 // Função para listar todos os filmes
 
-import { films } from "../data/db.js";
+import {films} from "../data/db.js";
 
 localStorage.setItem("films", JSON.stringify(films));
 
@@ -12,7 +12,7 @@ export function listfilms() {
   });
 }
 
-const conteiner = document.getElementById("conteiner");
+const container = document.getElementById("container");
 
 function listFilms(films) {
   films.forEach((film) => {
@@ -28,7 +28,7 @@ function listFilms(films) {
 
     let p = document.createElement("p");
     p.textContent = film.description;
-
+    
     const detailsBtn = document.createElement("button");
     detailsBtn.classList.add("btn");
     detailsBtn.textContent = "Details";
@@ -41,10 +41,10 @@ function listFilms(films) {
 
     const deleteBtn = document.createElement("button");
     deleteBtn.classList.add("btn2");
-    deleteBtn.textContent = "Details";
+    deleteBtn.textContent = "Delete";
     deleteBtn.addEventListener("click", () => {
       card.remove();
-    });
+    }); 
 
     card.appendChild(img);
     card.appendChild(h2);
@@ -52,12 +52,8 @@ function listFilms(films) {
     card.appendChild(detailsBtn);
     card.appendChild(editBtn);
     card.appendChild(deleteBtn);
-    conteiner.appendChild(card);
+    container.appendChild(card);    
   });
-  return listFilms(films);
+
 }
-/*
-console.log(listFilms(films));
-console.log("Elment conteiner", conteiner);
-console.log("Date of films", films);
-*/
+

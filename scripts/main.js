@@ -12,14 +12,19 @@
 
 */
 
+
 /*
-
 ============== GROUP 3 LOGIC ==========
-
 */
 
-/*
+import { films } from "../data/db.js";
+import { listfilms } from "./get-films.js";
+listfilms(films)
 
+
+
+
+/*
 ============== GROUP 4 LOGIC ==========
 
 */
