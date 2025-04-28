@@ -4,3 +4,49 @@ body {
   padding: 2rem;
   color: #333;
 }
+
+
+img{
+  padding: 0;
+  height: 200px;
+  width: 400px;
+  border-radius: 5px;
+}
+
+.content{
+  margin: 0 auto;
+  max-width: 400px;
+  background-color: rgb(223, 223, 223);
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.btn1 {
+  background-color: rgb(43, 151, 43);
+  padding: 5px 10px 5px 10px;
+  border: 2px solid green;
+  cursor: pointer;
+  border-radius: 5px;
+  color: white;
+}
+
+.btn2 {
+  margin: 5px;
+  margin-left: 92%;
+  background-color: rgb(241, 64, 64);
+  padding: 5px 10px 5px 10px;
+  border: 2px solid rgb(218, 0, 0);
+  cursor: pointer;
+  border-radius: 5px;
+  color: white;
+}
+
+.btn1:hover {
+  background-color: rgb(57, 167, 90);
+}
+
+.btn2:hover{
+  background-color: rgb(252, 77, 77);
+}
+
