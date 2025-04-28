@@ -21,6 +21,8 @@ img{
   padding: 10px;
   border: 1px solid black;
   border-radius: 5px;
+  box-shadow: -3px 3px rgba(0, 0, 0, .2);
+  
 }
 
 #detailsButton {
@@ -37,17 +39,17 @@ img{
   margin-left: 92%;
   background-color: rgb(241, 64, 64);
   padding: 5px 10px 5px 10px;
-  border: 2px solid rgb(218, 0, 0);
+  border: 2px solid rgb(255, 0, 0);
   cursor: pointer;
   border-radius: 5px;
   color: white;
 }
 
-.btn1:hover {
+.btnDetails:hover {
   background-color: rgb(57, 167, 90);
 }
 
-.btn2:hover{
+.btn:hover{
   background-color: rgb(252, 77, 77);
 }
 
