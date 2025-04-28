@@ -68,3 +68,10 @@ body {
   background-color: #52b788;
   font-weight: bolder;
 }
+.span-required {
+  display: none;
+  color: red;
+  font-size: 12px;
+  margin: 3px 0 0 1px;
+
+}
