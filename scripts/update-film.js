@@ -47,7 +47,9 @@ export function updateFilm() {
 
     //validar os inputs, estlizar o formulario e guardar alteracoes no BD
     document.body.appendChild(form);
-    preFillForm(films[0]);
+    const id=Number(localStorage.getItem('id'));
+    const film=films.find(film=>film.id===id);
+    preFillForm(film);
 
     closeButton.addEventListener('click', () => { document.body.removeChild(form) });
 }
@@ -65,6 +67,10 @@ function preFillForm(films) {
 const edit_button = document.getElementById("edit_button");
 function saveUpdateFilm() {
     //funcao para transformar em string e voltar a mandar para bd;
+localStorage.setItem("films", JSON.stringify(films));
+
+let db = localStorage.getItem("films");
+let jsonDB = JSON.parse(db);
 
 }
 
