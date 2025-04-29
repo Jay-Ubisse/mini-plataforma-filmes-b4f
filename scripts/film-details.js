@@ -29,7 +29,8 @@ let rate=document.getElementById("rate")
 let description=document.getElementById("description")
 
 
-localStorage.setItem("films", JSON.stringify(films));
+
+let db = localStorage.getItem("films");
 let jsonDB = JSON.parse(db);
 
 function renderFilms(jsonDB) {
