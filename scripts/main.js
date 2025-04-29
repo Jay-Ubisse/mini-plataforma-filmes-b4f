@@ -1,7 +1,7 @@
 // Arquivo principal que inicializa a aplicação
 import {updateFilm} from "./update-film.js";
-import { listfilms } from "./get-films.js";
-listfilms(films)
+//import { listfilms } from "./get-films.js";
+
 /*
 
 ============== GROUP 1 LOGIC ==========
@@ -12,11 +12,11 @@ listfilms(films)
 
 ============== GROUP 2 LOGIC ==========
 
-*/
+*//*
 edit_button.addEventListener("click",()=>{ 
     updateFilm();
-})
-//window.updateFilm=updateFilm;
+})*/
+window.updateFilm=updateFilm;
 
 /*
 

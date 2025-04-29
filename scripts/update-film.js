@@ -16,7 +16,7 @@ export function updateFilm() {
     form.style.left = '50%';
     form.style.zIndex = '1000'
     form.innerHTML = `
- <span id= "close_button">&times</span>
+ <span id= "close_button">&times;</span>
     <label for="title">Título</label>
  <input type="text" id="title" name="title" required><br>
 
@@ -34,7 +34,7 @@ export function updateFilm() {
 
  <label for="imageUrl">Url da Imagem</label>
  <input type="url"  id="imageUrl" name = "imageUrl" required><br>
- <button  id="button" onclick="saveUpdateFilm()">Salvar</button>
+ <button  id="button" >Salvar</button>
  `;
     //styling the close button
     const closeButton = form.querySelector("#close_button");
@@ -47,9 +47,13 @@ export function updateFilm() {
 
     //validar os inputs, estlizar o formulario e guardar alteracoes no BD
     document.body.appendChild(form);
-    const id=Number(localStorage.getItem('id'));
+    const saveButton = form.querySelector("#button");
+saveButton.addEventListener("click", saveUpdateFilm);
+    const film=films.findfind(film=>film.id===id)
+    preFillForm(films());
+    /*const id=Number(localStorage.getItem('id'));
     const film=films.find(film=>film.id===id);
-    preFillForm(film);
+    preFillForm(film);*/
 
     closeButton.addEventListener('click', () => { document.body.removeChild(form) });
 }
@@ -62,15 +66,82 @@ function preFillForm(films) {
     document.getElementById('description').value = films.description;
     document.getElementById('imageUrl').value = films.imageUrl;
 }
+function isValidateForm() {
+    let valido = true;
+    const titleInput = document.getElementById("title").value;
+    const genderInput = document.getElementById("gender").value;
+    const yearInput =parseInt (document.getElementById("year").value);
+    const rateInput =parseFloat (document.getElementById("rate").value);
+    const imageUrlInput = document.getElementById("imageUrl").value;
+    const currentYear = new Date().getFullYear();
+ 
+    if (titleInput.length < 3) {
+        titleInput.style.borderColor = "red";
+        valido = false;
+       
+    }else {
+            titleInput.style.borderColor = "green";
+            valido = false;
+          }
+      
+        if (!isNaN(genderInput)) {
+            genderInput.style.borderColor = "red";
+            valido = false;
+          return "O gênero não pode conter apenas números.";
+        }else {
+            genderInput.style.borderColor = "green";
+          }
+      
+        if (yearInput < 1888 || year > currentYear) {
+           yearInput.style.borderColor = "red";
+           valido = false;
+          return'Ano inválido. Deve estar entre 1888 $(currentYear)' ;
+        }else {
+           yearInput.style.borderColor = "green";
+          }
+      
+        if (rate < 0 || rate > 5) {
+            rateInput.style.borderColor = "red";
+            valido = false;
+          return "Avaliação deve estar entre 0 e 5.";
+        }else {
+            rateInput.style.borderColor = "green";
+          }
+      
+        if (!imageUrl.startsWith("http://") && !imageUrl.startsWith("https://")) {
+            imageUrlInput.style.borderColor = "red";
+            valido = false;
+            return "A URL da imagem deve começar com http:// ou https://";
+          }else {
+            imageUrlInput.style.borderColor = "green";
+          }
+          return valido;
+    }
 
-//create popup for form
+    //create popup for form
 const edit_button = document.getElementById("edit_button");
 function saveUpdateFilm() {
-    //funcao para transformar em string e voltar a mandar para bd;
+    if(!isValidateForm()){
+        return "Retifica os inputs antes de salvar";
+    }; 
+    const id= Number(localStorage.getItem("id"));
+    const i = films.find(film=>film.id===id);
+    if(!i){
+        return "filme nao Encontrado";
+    }
+    
+    films[i] = {
+        id,
+        title: document.getElementById("title").value,
+        gender: document.getElementById("gender").value,
+        year: document.getElementById("year").value,
+        rate: document.getElementById("rate").value,
+        description: document.getElementById("description").value,
+        imageUrl: document.getElementById("imageUrl").value
+      };
 localStorage.setItem("films", JSON.stringify(films));
-
-let db = localStorage.getItem("films");
-let jsonDB = JSON.parse(db);
+alert("O Fime foi editado com sucesso");
+location.reload();
 
 }
 
