@@ -1,6 +1,8 @@
 //Função para eliminar filme
 import { films } from "../data/db.js";
 import { listFilms } from "../scripts/get-films.js";
+
+export function deleteFilm(){
 //criacao e estilizacao do modal
 const modal= document.getElementById("modal");
 modal.style.width="300px";
@@ -35,15 +37,17 @@ noButton.addEventListener("click", ()=> {
 //estilizacao do botao sim
 const yesButton = document.getElementById("yesbutton");
 yesButton.style.color = "green";
-yesButton.addEventListener("click",(deleteFilm)=>{
+yesButton.addEventListener("click",(removeFilm)=>{
     alert("Filme eliminado com sucesso");
     modal.style.display = "none";
     
 });
+}
 
-export function deleteFilm(id){
+
+export function removeFilm(id){
     for(let i=0;i<films;i++){
         films[i].addEventListener('click', false)
-        films.splice(i, 1);
+       films.splice(i, 1);
     
 }}
