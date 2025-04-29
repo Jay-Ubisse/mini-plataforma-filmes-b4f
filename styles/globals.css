@@ -45,11 +45,11 @@ img{
   color: white;
 }
 
-.btnDetails:hover {
+#DetailsButton {
   background-color: rgb(57, 167, 90);
 }
 
-.btn:hover{
+.close:hover{
   background-color: rgb(252, 77, 77);
 }
 
