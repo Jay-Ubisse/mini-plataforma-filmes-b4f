@@ -4,11 +4,12 @@ import { films } from "../data/db.js";
 export function updateFilm() {
     const form = document.createElement("form");
     form.style.maxHeight = 'fit-content';
-    form.style.maxWidth = 'fit-content'
+    form.style.maxWidth = '50%'
     form.style.backgroundColor = '#D9D9D9';
     form.style.display = 'flex';
     form.style.flexDirection = 'column';
     form.style.padding = '20px';
+    form.style.borderRadius="8px"
     form.style.border = '1px solid black';
     form.style.top = '20%';
     form.style.boxShadow = '4px 4px 5px gray';
@@ -34,7 +35,7 @@ export function updateFilm() {
 
  <label for="imageUrl">Url da Imagem</label>
  <input type="url"  id="imageUrl" name = "imageUrl" required><br>
- <button  id="button" >Salvar</button>
+ <button  id="button" onclick="saveUpdateFilm()">Salvar</button>
  `;
     //styling the close button
     const closeButton = form.querySelector("#close_button");
@@ -45,19 +46,23 @@ export function updateFilm() {
     closeButton.style.cursor = 'pointer'
     closeButton.style.color = 'red'
 
-    //validar os inputs, estlizar o formulario e guardar alteracoes no BD
+    //show the form 
     document.body.appendChild(form);
-    const saveButton = form.querySelector("#button");
-saveButton.addEventListener("click", saveUpdateFilm);
-    const film=films.findfind(film=>film.id===id)
-    preFillForm(films());
-    /*const id=Number(localStorage.getItem('id'));
+    const id=Number(localStorage.getItem('id'));
     const film=films.find(film=>film.id===id);
-    preFillForm(film);*/
+    preFillForm(film);
 
+    //save the form
+    const saveButton=form.querySelector("#save");
+    saveButton.addEventListener('click',() => { alert ("Filme salvo com sucesso")
+        saveUpdateFilm()
+        document.body.removeChild(form)})
+
+    //close the form
     closeButton.addEventListener('click', () => { document.body.removeChild(form) });
 }
 
+//fill the form
 function preFillForm(films) {
     document.getElementById('title').value = films.title;
     document.getElementById('gender').value = films.gender;
@@ -140,8 +145,9 @@ function saveUpdateFilm() {
         imageUrl: document.getElementById("imageUrl").value
       };
 localStorage.setItem("films", JSON.stringify(films));
-alert("O Fime foi editado com sucesso");
-location.reload();
+
+let db = localStorage.getItem("films");
+let jsonDB = JSON.parse(db);
 
 }
 

@@ -1,7 +1,7 @@
 // Arquivo principal que inicializa a aplicação
 import {updateFilm} from "./update-film.js";
-//import { listfilms } from "./get-films.js";
-
+import { listfilms } from "./get-films.js";
+listfilms(films)
 /*
 
 ============== GROUP 1 LOGIC ==========
