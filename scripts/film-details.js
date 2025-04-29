@@ -1,4 +1,4 @@
-import { films } from "../data/db";
+//import { films } from "../data/db"
 
 const detailsDiv = document.getElementById("content");
 
@@ -11,6 +11,8 @@ const closeButton = document.getElementsByClassName("close")[0];
 
 detailsButton.onclick = function() {
   detailsDiv.style.display = "block";
+  datailsFilms(value)
+  
 }
 
 
@@ -20,10 +22,12 @@ closeButton.onclick = function() {
 
 
 let title=document.getElementById("title")
+let image=document.getElementById("image")
 let gender=document.getElementById("gender")
 let year=document.getElementById("year")
 let rate=document.getElementById("rate")
 let description=document.getElementById("description")
+
 
 localStorage.setItem("films", JSON.stringify(films));
 let jsonDB = JSON.parse(db);
@@ -32,6 +36,7 @@ function renderFilms(jsonDB) {
   detailsDiv.innerHTML = "";
   jsonDB.map((film) => {
     title.textContent = film.title;
+    image.textContent = film.imageUrl;
     gender.textContent = film.gender;
     year.textContent = film.year;
     rate.textContent = film.rate;
