@@ -15,15 +15,6 @@ modal.style.borderRadius="10px";
 modal.style.backgroundImage="url(../styles/bluegradiente.jpg)";
 modal.style.color="#6769e6";
 
-//obtencao e estilizacao do botao para deletar
-const delete_button = document.getElementById("delete_button");
-delete_button.textContent= "Delete";
-delete_button.style.backgroundColor="red";
-delete_button.style.color="white";
-delete_button.style.border="1px solid black";
-delete_button.style.borderRadius="10px";
-
-
 //evento que sera disparado ao clicar o botao de deletar
 delete_button.addEventListener("click", ()=>{
     modal.style.display="block";
@@ -50,7 +41,7 @@ yesButton.addEventListener("click",(deleteFilm)=>{
     
 });
 
-function deleteFilm(id){
+export function deleteFilm(id){
     for(let i=0;i<films;i++){
         films[i].addEventListener('click', false)
         films.splice(i, 1);
