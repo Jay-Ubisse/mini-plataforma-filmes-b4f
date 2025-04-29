@@ -1,25 +1,31 @@
-/ Função para eliminar filme
-/* import { films } from "../data/db.js";*/
+//Função para eliminar filme
+import { films } from "../data/db.js";
+import { listFilms } from "../scripts/get-films.js";
+//criacao e estilizacao do modal
 const modal= document.getElementById("modal");
 modal.style.width="300px";
 modal.style.height="100px";
 modal.style.padding="20px";
+modal.style.margin="20px";
 modal.style.border="1px solid black";
 modal.style.boxShadow="10px 10px 10px 10px gray";
 modal.style.display="none";
-modal.style.position="fixed";
+modal.style.position="relative";
+modal.style.borderRadius="10px";
+modal.style.backgroundImage="url(../styles/bluegradiente.jpg)";
+modal.style.color="#6769e6";
 
 //obtencao e estilizacao do botao para deletar
-const deleteButton = document.getElementById("delete-btn");
-deleteButton.textContent= "Delete";
-deleteButton.style.backgroundColor="red";
-deleteButton.style.color="white";
-deleteButton.style.border="1px solid black";
-deleteButton.style.borderRadius="10px";
+const delete_button = document.getElementById("delete_button");
+delete_button.textContent= "Delete";
+delete_button.style.backgroundColor="red";
+delete_button.style.color="white";
+delete_button.style.border="1px solid black";
+delete_button.style.borderRadius="10px";
 
 
 //evento que sera disparado ao clicar o botao de deletar
-deleteButton.addEventListener("click", ()=>{
+delete_button.addEventListener("click", ()=>{
     modal.style.display="block";
 const content=document.getElementById("modal-content");
 
@@ -31,16 +37,22 @@ const content=document.getElementById("modal-content");
 const noButton = document.getElementById("nobutton");
 noButton.style.color="red";
 noButton.addEventListener("click", ()=> {
-    noButton.style.display = "none";
+    modal.style.display = "none";
 });
 
 
 //estilizacao do botao sim
 const yesButton = document.getElementById("yesbutton");
-yesButton.textContent = "yes";
 yesButton.style.color = "green";
-yesButton.addEventListener("click",()=>{
+yesButton.addEventListener("click",(deleteFilm)=>{
     alert("Filme eliminado com sucesso");
-    yesButton.style.display = "none";
+    modal.style.display = "none";
     
 });
+
+function deleteFilm(id){
+    for(let i=0;i<films;i++){
+        films[i].addEventListener('click', false)
+        films.splice(i, 1);
+    
+}}

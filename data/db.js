@@ -9,7 +9,7 @@ export const films = [
     imageUrl: "https://github.com/jay-ubisse.png",
   },
   {
-    id: 2,
+    id: 3,
     title: "Interestelar",
     gender: "Ficção científica",
     year: 2014,
@@ -18,7 +18,7 @@ export const films = [
     imageUrl: "https://github.com/jay-ubisse.png",
   },
   {
-    id: 2,
+    id: 4,
     title: "Beijo Técnico",
     gender: "Romance",
     year: 2014,
@@ -27,7 +27,7 @@ export const films = [
     imageUrl: "https://github.com/jay-ubisse.png",
   },
   {
-    id: 2,
+    id: 5,
     title: "Afonso Dono Delas",
     gender: "Drama",
     year: 2014,
@@ -36,7 +36,7 @@ export const films = [
     imageUrl: "https://github.com/jay-ubisse.png",
   },
   {
-    id: 2,
+    id: 6,
     title: "Inácio The Man",
     gender: "Documentário",
     year: 2014,
@@ -45,7 +45,7 @@ export const films = [
     imageUrl: "https://github.com/jay-ubisse.png",
   },
   {
-    id: 2,
+    id: 7,
     title: "The Coronel Killer",
     gender: "Development",
     year: 2014,
