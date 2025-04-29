@@ -13,6 +13,7 @@ export function addBtn() {
     addNewFilm_popup.style.display = "block";
   });
   closePopupBtn.addEventListener("click", () => {
+    confirm("tem a certeza de que deseja sair?")
     addNewFilm_popup.style.display= "none";
   });
   window.addEventListener("click", (event) => {
