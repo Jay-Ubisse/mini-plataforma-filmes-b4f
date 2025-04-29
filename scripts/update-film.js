@@ -1,5 +1,12 @@
 // Função para editar filme existente
 import { films } from "../data/db.js";
+
+
+
+function setAndUpdate(id) {
+    localStorage.setItem("id", id); 
+    updateFilm();
+}
 //create form and styling
 export function updateFilm() {
     const form = document.createElement("form");
@@ -35,7 +42,7 @@ export function updateFilm() {
 
  <label for="imageUrl">Url da Imagem</label>
  <input type="url"  id="imageUrl" name = "imageUrl" required><br>
- <button  id="button" onclick="saveUpdateFilm()">Salvar</button>
+ <button  id="button" >Salvar</button>
  `;
     //styling the close button
     const closeButton = form.querySelector("#close_button");
@@ -45,15 +52,21 @@ export function updateFilm() {
     closeButton.style.fontSize = '24px'
     closeButton.style.cursor = 'pointer'
     closeButton.style.color = 'red'
-
     //show the form 
     document.body.appendChild(form);
+
     const id=Number(localStorage.getItem('id'));
-    const film=films.find(film=>film.id===id);
+    const film = films.find(film => film.id === id);
+
+    if (!film) {
+    alert("Filme não encontrado com o ID: " + id);
+    return;
+    }
+   
     preFillForm(film);
 
     //save the form
-    const saveButton=form.querySelector("#save");
+    const saveButton=form.querySelector("#button");
     saveButton.addEventListener('click',() => { alert ("Filme salvo com sucesso")
         saveUpdateFilm()
         document.body.removeChild(form)})
@@ -64,6 +77,7 @@ export function updateFilm() {
 
 //fill the form
 function preFillForm(films) {
+
     document.getElementById('title').value = films.title;
     document.getElementById('gender').value = films.gender;
     document.getElementById('year').value = films.year;
@@ -73,12 +87,15 @@ function preFillForm(films) {
 }
 function isValidateForm() {
     let valido = true;
-    const titleInput = document.getElementById("title").value;
+    const titleInput = document.getElementById("title");
     const genderInput = document.getElementById("gender").value;
     const yearInput =parseInt (document.getElementById("year").value);
     const rateInput =parseFloat (document.getElementById("rate").value);
     const imageUrlInput = document.getElementById("imageUrl").value;
     const currentYear = new Date().getFullYear();
+    const titleInputEl = document.getElementById("title");
+    
+    titleInput = titleInputEl.value;
  
     if (titleInput.length < 3) {
         titleInput.style.borderColor = "red";
@@ -97,7 +114,7 @@ function isValidateForm() {
             genderInput.style.borderColor = "green";
           }
       
-        if (yearInput < 1888 || year > currentYear) {
+        if (yearInput < 1888 || yearInput> currentYear) {
            yearInput.style.borderColor = "red";
            valido = false;
           return'Ano inválido. Deve estar entre 1888 $(currentYear)' ;
@@ -105,7 +122,7 @@ function isValidateForm() {
            yearInput.style.borderColor = "green";
           }
       
-        if (rate < 0 || rate > 5) {
+        if (rateInput < 0 || rateInput > 5) {
             rateInput.style.borderColor = "red";
             valido = false;
           return "Avaliação deve estar entre 0 e 5.";
@@ -113,10 +130,10 @@ function isValidateForm() {
             rateInput.style.borderColor = "green";
           }
       
-        if (!imageUrl.startsWith("http://") && !imageUrl.startsWith("https://")) {
+        if (!imageUrlInput.startsWith("http://") && !imageUrlInput.startsWith("https://")) {
             imageUrlInput.style.borderColor = "red";
             valido = false;
-            return "A URL da imagem deve começar com http:// ou https://";
+            return "A URL da imagem deve iniciar por http:// ou https://";
           }else {
             imageUrlInput.style.borderColor = "green";
           }
@@ -130,7 +147,7 @@ function saveUpdateFilm() {
         return "Retifica os inputs antes de salvar";
     }; 
     const id= Number(localStorage.getItem("id"));
-    const i = films.find(film=>film.id===id);
+    const i = films.findIndex(film=>film.id===id);
     if(!i){
         return "filme nao Encontrado";
     }
@@ -145,9 +162,8 @@ function saveUpdateFilm() {
         imageUrl: document.getElementById("imageUrl").value
       };
 localStorage.setItem("films", JSON.stringify(films));
-
-let db = localStorage.getItem("films");
-let jsonDB = JSON.parse(db);
+alert("O filme foi editado com sucesso.");
+    location.reload();
 
 }
 
