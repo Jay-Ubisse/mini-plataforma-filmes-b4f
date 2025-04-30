@@ -1,4 +1,4 @@
-/ Função para eliminar filme
+// Função para eliminar filme
 /* import { films } from "../data/db.js";*/
 const modal= document.getElementById("modal");
 modal.style.width="300px";
