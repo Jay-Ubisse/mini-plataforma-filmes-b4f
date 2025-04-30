@@ -72,7 +72,12 @@ export function updateFilm() {
         document.body.removeChild(form)})
 
     //close the form
-    closeButton.addEventListener('click', () => { document.body.removeChild(form) });
+    const cancelButton = document.createElement("button");
+cancelButton.textContent = "Cancelar";
+cancelButton.addEventListener("click", () => {
+    document.body.removeChild(form);
+});
+form.appendChild(cancelButton);
 }
 
 //fill the form
