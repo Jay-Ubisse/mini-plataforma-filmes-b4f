@@ -1,6 +1,8 @@
 // Função para listar todos os filmes
 
-/*import {films} from "../data/db.js";*/
+import {films} from "../data/db.js";
+
+
 
 export function listfilms() {
   window.addEventListener("load", () => {
@@ -25,29 +27,30 @@ function listFilms(films) {
     let p = document.createElement("p");
     p.textContent = film.description;
     
-    const detailsButton= document.createElement("button");
-    detailsButton.classList.add("btn");
-    detailsButton.textContent = "Details";
-
+    const detailsBtn = document.createElement("button");
+    detailsBtn.classList.add("btn");
+    detailsBtn.textContent = "Details";
+    detailsBtn.addEventListener("click", () => {});
 
     const editBtn = document.createElement("button");
     editBtn.classList.add("btn1");
     editBtn.textContent = "Edit";
+    editBtn.addEventListener("click", () => {});
 
-
-    const deleteButton = document.createElement("button");
-    deleteButton.classList.add("btn2");
-    deleteButton.textContent = "Delete";
-    
+    const deleteBtn = document.createElement("button");
+    deleteBtn.classList.add("btn2");
+    deleteBtn.textContent = "Delete";
+    deleteBtn.addEventListener("click", () => {
+      
+    }); 
 
     card.appendChild(img);
     card.appendChild(h2);
     card.appendChild(p);
-    card.appendChild(detailsButton);
+    card.appendChild(detailsBtn);
     card.appendChild(editBtn);
-    card.appendChild(deleteButton);
+    card.appendChild(deleteBtn);
     container.appendChild(card);    
   });
 
 }
-

@@ -19,9 +19,14 @@ window.updateFilm = updateFilm;
 /*
 ============== GROUP 3 LOGIC ==========
 */
+
 import { films } from "../data/db.js";
 import { listfilms } from "./get-films.js";
-listfilms(films);
+listfilms(films)
+
+
+
+
 /*
 ============== GROUP 4 LOGIC ==========
 
