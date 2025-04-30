@@ -17,7 +17,8 @@ addBtn();
 document.getElementById("addFilmForm").addEventListener("submit", (e) => {
   e.preventDefault();
   //isFieldValidated(); Verificar isso
-  createFilm();
+  const response = createFilm();
+  alert(response.message);
 });
 
 /*

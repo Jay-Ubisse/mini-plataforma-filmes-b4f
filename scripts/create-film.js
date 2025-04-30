@@ -136,9 +136,9 @@ export function createFilm() {
 
   localStorage.setItem("films", JSON.stringify(actualDb));
 
-  console.log({
+  return {
     status: 201,
-    message: "ok",
+    message: "Filme cadastrado com sucesso!",
     body: actualDb,
-  });
+  };
 }
