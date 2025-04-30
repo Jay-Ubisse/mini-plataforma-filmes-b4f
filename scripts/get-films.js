@@ -1,6 +1,6 @@
 // Função para listar todos os filmes
 
-/*import {films} from "../data/db.js";*/
+import {films} from "../data/db.js";
 
 export function listfilms() {
   window.addEventListener("load", () => {
@@ -49,5 +49,5 @@ function listFilms(films) {
     container.appendChild(card);    
   });
 
-}
+};
 
