@@ -23,3 +23,5 @@
 ============== GROUP 4 LOGIC ==========
 
 */
+import { showDetails } from "./film-details";
+
