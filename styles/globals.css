@@ -17,7 +17,7 @@ img{
   display: none;
   margin: 0 auto;
   max-width: 400px;
-  background-color: rgb(177, 169, 169);
+  background-color: rgb(236, 236, 236);
   padding: 10px;
   border: 1px solid rgb(136, 130, 130);
   border-radius: 4px;
@@ -47,10 +47,10 @@ img{
 }
 
 #DetailsButton {
-  background-color: rgb(57, 167, 90);
+  background-color: rgb(53, 175, 89);
 }
 
 .close:hover{
-  background-color: rgb(252, 77, 77);
+  background-color: rgb(226, 57, 57);
 }
 
