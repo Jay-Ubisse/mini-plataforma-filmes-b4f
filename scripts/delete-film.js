@@ -1,4 +1,4 @@
-/ Função para eliminar filme
+//Função para eliminar filme
 /* import { films } from "../data/db.js";*/
 const modal= document.getElementById("modal");
 modal.style.width="300px";
@@ -14,8 +14,10 @@ modal.style.backgroundImage="url(../styles/bluegradiente.jpg)";
 modal.style.color="#6769e6";
 
 //evento que sera disparado ao clicar o botao de deletar
-delete_button.addEventListener("click", ()=>{
-    modal.style.display="block";
+
+export const deletebtn=document.getElementById("delete_button");
+deletebtn.addEventListener("click", ()=>{
+modal.style.display="block";
 const content=document.getElementById("modal-content");
 listFilms
 });
@@ -38,7 +40,7 @@ yesButton.addEventListener("click",(removeFilm)=>{
     modal.style.display = "none";
     
 });
-}
+
 
 
 export function removeFilm(id){

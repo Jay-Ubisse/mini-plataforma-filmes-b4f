@@ -17,11 +17,10 @@
 ============== GROUP 3 LOGIC ==========
 */
 
-import { films } from "../data/db.js";
-import { listfilms } from "./get-films.js";
-listfilms(films)
-import { deleteFilm } from "./delete-film.js";
-removeFilm(deleteFilm);
+import { listfilms } from "../scripts/get-films.js";
+listfilms()
+import { deletebtn} from "../scripts/delete-film.js";
+
 
 
 
