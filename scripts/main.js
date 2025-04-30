@@ -1,17 +1,20 @@
 // Arquivo principal que inicializa a aplicação
-import { newFilm} from "./create-film.js";
+import { newFilm } from "./create-film.js";
+import { createFilm } from "./create-film.js";
 /*
 
 ============== GROUP 1 LOGIC ==========
 
 */
 //add new film button
-document.addEventListener(`DOMContentLoaded`,()=>{
+document.addEventListener(`DOMContentLoaded`, () => {
   newFilm();
-
 });
 
-
+document.getElementById("addFilmForm").addEventListener("submit", (e) => {
+  e.preventDefault();
+  createFilm();
+});
 
 /*
 
