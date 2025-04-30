@@ -1,21 +1,22 @@
 // Arquivo principal que inicializa a aplicação
 import { updateFilm } from "./update-film.js";
-import { newFilm } from "./create-film.js";
+
 /*
 
 ============== GROUP 1 LOGIC ==========
 
 */
-document.addEventListener(`DOMContentLoaded`, () => {
-    newFilm();
 
-});
 
 /*
 ============== GROUP 2 LOGIC ==========
 */
 window.updateFilm = updateFilm;
-
+/*
+document.getElementById("edit").addEventListener("submit", (e) => {
+    e.preventDefault();
+    updateFilm();
+});*/
 /*
 ============== GROUP 3 LOGIC ==========
 */
@@ -34,6 +35,6 @@ listfilms(films)
 
 import { showDetails } from "./film-details";
 
-let viewDetails=document.getElementById("details")
-viewDetails.onclick=showDetails()
+let viewDetails = document.getElementById("details")
+viewDetails.onclick = showDetails()
 
