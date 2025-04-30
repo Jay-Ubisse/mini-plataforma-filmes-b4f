@@ -1,3 +1,10 @@
+body {
+  font-family: Arial, sans-serif;
+  /*background-color: #7d85f5e3;*/
+  background-image: url("bluegradiente.jpg");
+  padding: 2rem;
+  color: #333;
+}
 :root{
   --font: 4em;
   --title:4em;
@@ -31,13 +38,7 @@
 
 }
 
-body {
-  font-family: Arial, sans-serif;
-  /*background-color: #7d85f5e3;*/
-  background-image: url("bluegradiente.jpg");
-  padding: 2rem;
-  color: #333;
-}
+
 
   
 /*Create Film Style*/
