@@ -1,6 +1,6 @@
 export const films = [
   {
-    id: 1,
+    id: 0,
     title: "O Grande Truque",
     gender: "Drama",
     year: 2006,
@@ -9,7 +9,7 @@ export const films = [
     imageUrl: "https://github.com/jay-ubisse.png",
   },
   {
-    id: 2,
+    id: 1,
     title: "Interestelar",
     gender: "Ficção científica",
     year: 2014,
