@@ -1,7 +1,6 @@
 // Função para cadastrar novo filme
-import { films } from "../data/db.js";
 
-
+import { db } from "./utils.js";
 
 export function addBtn() {
   const addNewFilmModal = document.getElementById("addNewFilmModal");
@@ -11,9 +10,11 @@ export function addBtn() {
   addNewFilmBtn.addEventListener("click", () => {
     addNewFilmModal.style.display = "flex";
   });
+
   closeModalBtn.addEventListener("click", () => {
     addNewFilmModal.style.display = "none";
   });
+
   window.addEventListener("click", (event) => {
     if (event.target === addNewFilmModal) {
       addNewFilmModal.style.display = "none";
@@ -119,8 +120,10 @@ export function createFilm() {
   const descriptionInput = document.getElementById("description");
   const imageUrlInput = document.getElementById("image");
 
+  const actualDb = JSON.parse(db);
+
   const data = {
-    id: 3,
+    id: actualDb.length + 1,
     title: titleInput.value,
     gender: genderInput.value,
     year: parseInt(yearInput.value),
@@ -129,5 +132,13 @@ export function createFilm() {
     imageUrl: imageUrlInput.value,
   };
 
-  console.log(data);
+  actualDb.push(data);
+
+  localStorage.setItem("films", JSON.stringify(actualDb));
+
+  console.log({
+    status: 201,
+    message: "ok",
+    body: actualDb,
+  });
 }

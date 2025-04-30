@@ -2,6 +2,7 @@
 import { addBtn } from "./create-film.js";
 import { isFieldValidated } from "./create-film.js";
 import { createFilm } from "./create-film.js";
+
 /*
 
 ============== GROUP 1 LOGIC ==========
@@ -12,13 +13,11 @@ import { createFilm } from "./create-film.js";
   newFilm();
 });*/
 
- 
- addBtn();
+addBtn();
 document.getElementById("addFilmForm").addEventListener("submit", (e) => {
   e.preventDefault();
-  isFieldValidated();
+  //isFieldValidated(); Verificar isso
   createFilm();
-  
 });
 
 /*
