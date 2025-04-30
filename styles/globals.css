@@ -37,6 +37,9 @@ body {
   background-image: url("bluegradiente.jpg");
   padding: 2rem;
   color: #333;
+<<<<<<< HEAD
+}
+=======
 }
 
   
@@ -134,3 +137,4 @@ input,textarea,select{
   margin: 3px 0 0 1px;
 
 }
+>>>>>>> a7756f7b781fd12064daf6b0c14241ed966a1d4c
