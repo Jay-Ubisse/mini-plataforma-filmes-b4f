@@ -1,12 +1,19 @@
 // Arquivo principal que inicializa a aplicação
 import {updateFilm} from "./update-film.js";
 //import { listfilms } from "./get-films.js";
-//listfilms(films)
+//listfilms(films)import { newFilm} from "./create-film.js";
 /*
 
 ============== GROUP 1 LOGIC ==========
 
 */
+//add new film button
+document.addEventListener(`DOMContentLoaded`,()=>{
+  newFilm();
+
+});
+
+
 
 /*
 
