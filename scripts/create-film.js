@@ -2,9 +2,13 @@
 import { films } from "../data/db.js";
 
 export function newFilm() {
-  return;
+    addBtn();
+    isFieldValidated();
+    saveInDb();
+    
+  
 }
-export function addBtn() {
+ function addBtn() {
   const addNewFilm_popup = document.getElementById("add_newFilm_popup");
   const addNewFilmBtn = document.getElementById("add_newFilm_btn");
   const closePopupBtn = document.getElementById("close_popup_btn");
@@ -25,22 +29,16 @@ export function addBtn() {
   return;
 }
 
-function addFilmForm() {
-  return;
-}
-
-export function isFieldValidated() {
+ function isFieldValidated() {
   document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("addFilmForm");
 
-    document.getElementById("title").addEventListener("input", validateTitle);
-    document.getElementById("gender").addEventListener("input", validateGender);
-    document.getElementById("rate").addEventListener("input", validateRate);
-    document.getElementById("year").addEventListener("input", validateYear);
-    document.getElementById("image").addEventListener("input", validateImage);
-    document
-      .getElementById("description")
-      .addEventListener("input", validateDescription);
+    form.querySelector("title").addEventListener("input", validateTitle);
+    form.querySelector("gender").addEventListener("input", validateGender);
+    form.querySelector("rate").addEventListener("input", validateRate);
+    form.querySelector("year").addEventListener("input", validateYear);
+    form.querySelector("image").addEventListener("input", validateImage);
+    form.getElementById("description").addEventListener("input", validateDescription);
   });
 
   function validateTitle() {
@@ -117,7 +115,7 @@ export function isFieldValidated() {
   }
 }
 
-export function saveInDb() {
+ function saveInDb() {
   document.addEventListener("DOMContentLoaded", () => {
     const titleInput = document.getElementById("title");
     const genderInput = document.getElementById("gender");

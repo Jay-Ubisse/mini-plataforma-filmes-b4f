@@ -1,5 +1,5 @@
 // Arquivo principal que inicializa a aplicação
-import { newFilm, addBtn, isFieldValidated, saveInDb} from "./create-film.js";
+import { newFilm} from "./create-film.js";
 /*
 
 ============== GROUP 1 LOGIC ==========
@@ -7,9 +7,7 @@ import { newFilm, addBtn, isFieldValidated, saveInDb} from "./create-film.js";
 */
 //add new film button
 document.addEventListener(`DOMContentLoaded`,()=>{
-    addBtn();
-    isFieldValidated();
-    saveInDb();
+  newFilm();
 
 });
 
