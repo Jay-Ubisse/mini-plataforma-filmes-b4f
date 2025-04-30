@@ -1,38 +1,26 @@
-//import { films } from "../data/db"
-
+import { films } from "../data/db.js";
 
 const detailsDiv = document.getElementById("content");
 
-
 const detailsButton = document.getElementById("detailsButton");
-
 
 const closeButton = document.getElementsByClassName("close")[0];
 
-
-
-
-
-   detailsButton.onclick = function showDetails() {
-   detailsDiv.style.display = "block";
-   datailsFilms(value)
-   closeButton()
-  
-}
-  closeButton.onclick = function() {
+detailsButton.onclick = function showDetails() {
+  detailsDiv.style.display = "block";
+  datailsFilms(value);
+  closeButton();
+};
+closeButton.onclick = function () {
   detailsDiv.style.display = "none";
-}
+};
 
-
-
-let title=document.getElementById("title")
-let image=document.getElementById("image")
-let gender=document.getElementById("gender")
-let year=document.getElementById("year")
-let rate=document.getElementById("rate")
-let description=document.getElementById("description")
-
-
+let title = document.getElementById("title");
+let image = document.getElementById("image");
+let gender = document.getElementById("gender");
+let year = document.getElementById("year");
+let rate = document.getElementById("rate");
+let description = document.getElementById("description");
 
 let db = localStorage.getItem("films");
 let jsonDB = JSON.parse(db);
@@ -51,19 +39,24 @@ function renderFilms(jsonDB) {
     detailsDiv.appendChild(year);
     detailsDiv.appendChild(rate);
     detailsDiv.appendChild(description);
-
-
   });
 }
 
-let value=detailsButton.getAttribute("value")
-function datailsFilms(value){
- for(let i=0;i<length;i++){
-  if(value===films[0].id){
-    renderFilms(jsonDB)
+let value = detailsButton.getAttribute("value");
+function datailsFilms(value) {
+  for (let i = 0; i < length; i++) {
+    if (value === films[0].id) {
+      renderFilms(jsonDB);
+    }
   }
- }
-
-  
 }
 
+//Exemplo de detales de filmes
+
+export function getFilm(id) {
+  const film = films.find((film) => film.id === Number(id));
+
+  if (!film) return "Filme não encontrado!";
+
+  return film;
+}
