@@ -1,7 +1,5 @@
 // Arquivo principal que inicializa a aplicação
 import { updateFilm } from "./update-film.js";
-//import { listfilms } from "./get-films.js";
-//listfilms(films)
 import { newFilm } from "./create-film.js";
 /*
 
@@ -23,7 +21,7 @@ window.updateFilm = updateFilm;
 */
 import { films } from "../data/db.js";
 import { listfilms } from "./get-films.js";
-listfilms(films)
+listfilms(films);
 /*
 ============== GROUP 4 LOGIC ==========
 
