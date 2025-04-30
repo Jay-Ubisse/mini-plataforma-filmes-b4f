@@ -1,5 +1,5 @@
 // Arquivo principal que inicializa a aplicação
-import {updateFilm} from "./update-film.js";
+import { updateFilm } from "./update-film.js";
 //import { listfilms } from "./get-films.js";
 //listfilms(films)
 import { newFilm} from "./create-film.js";
@@ -23,7 +23,7 @@ document.addEventListener(`DOMContentLoaded`,()=>{
 edit_button.addEventListener("click",()=>{ 
     updateFilm();
 })*/
-window.updateFilm=updateFilm;
+window.updateFilm = updateFilm;
 
 
 /*
