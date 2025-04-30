@@ -4,7 +4,7 @@ import { films } from "../data/db"
 const detailsDiv = document.getElementById("content");
 
 
-const detailsButton = document.getElementById("detailsButton");
+const detailsButton = document.getElementById("details");
 
 
 const closeButton = document.getElementsByClassName("close")[0];
