@@ -1,34 +1,31 @@
 // Função para cadastrar novo filme
 import { films } from "../data/db.js";
 
-export function newFilm() {
-  addBtn();
-  isFieldValidated();
-}
 
-function addBtn() {
-  const addNewFilm_popup = document.getElementById("add_newFilm_popup");
-  const addNewFilmBtn = document.getElementById("add_newFilm_btn");
-  const closePopupBtn = document.getElementById("close_popup_btn");
+
+export function addBtn() {
+  const addNewFilmModal = document.getElementById("addNewFilmModal");
+  const addNewFilmBtn = document.getElementById("addNewFilmBtn");
+  const closeModalBtn = document.getElementById("closeModalBtn");
 
   addNewFilmBtn.addEventListener("click", () => {
-    addNewFilm_popup.style.display = "flex";
+    addNewFilmModal.style.display = "flex";
   });
-  closePopupBtn.addEventListener("click", () => {
+  closeModalBtn.addEventListener("click", () => {
     confirm("tem a certeza de que deseja sair?");
-    addNewFilm_popup.style.display = "none";
+    addNewFilmBtn.style.display = "none";
   });
   window.addEventListener("click", (event) => {
-    if (event.target === addNewFilm_popup) {
-      addNewFilm_popup.style.display = "none";
+    if (event.target === addNewFilmModal) {
+      addNewFilmBtn.style.display = "none";
     }
   });
 
   return;
 }
 
-function isFieldValidated() {
-  document.addEventListener("DOMContentLoaded", () => {
+export function isFieldValidated() {
+  document.addEventListener("click", () => {
     const form = document.getElementById("addFilmForm");
 
     form.querySelector("title").addEventListener("input", validateTitle);

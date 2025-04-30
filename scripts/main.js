@@ -1,5 +1,5 @@
 // Arquivo principal que inicializa a aplicação
-import { newFilm } from "./create-film.js";
+import { addBtn, isFieldValidated } from "./create-film.js";
 import { createFilm } from "./create-film.js";
 /*
 
@@ -7,13 +7,17 @@ import { createFilm } from "./create-film.js";
 
 */
 //add new film button
-document.addEventListener(`DOMContentLoaded`, () => {
+/*document.addEventListener(`DOMContentLoaded`, () => {
   newFilm();
-});
+});*/
 
+ 
+ addBtn();
 document.getElementById("addFilmForm").addEventListener("submit", (e) => {
   e.preventDefault();
+  isFieldValidated();
   createFilm();
+  
 });
 
 /*
