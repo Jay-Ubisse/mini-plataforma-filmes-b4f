@@ -12,12 +12,11 @@ export function addBtn() {
     addNewFilmModal.style.display = "flex";
   });
   closeModalBtn.addEventListener("click", () => {
-    confirm("tem a certeza de que deseja sair?");
-    addNewFilmBtn.style.display = "none";
+    addNewFilmModal.style.display = "none";
   });
   window.addEventListener("click", (event) => {
     if (event.target === addNewFilmModal) {
-      addNewFilmBtn.style.display = "none";
+      addNewFilmModal.style.display = "none";
     }
   });
 

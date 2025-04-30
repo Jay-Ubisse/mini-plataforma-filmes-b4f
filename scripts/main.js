@@ -1,5 +1,6 @@
 // Arquivo principal que inicializa a aplicação
-import { addBtn, isFieldValidated } from "./create-film.js";
+import { addBtn } from "./create-film.js";
+import { isFieldValidated } from "./create-film.js";
 import { createFilm } from "./create-film.js";
 /*
 
