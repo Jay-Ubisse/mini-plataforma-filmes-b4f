@@ -15,18 +15,12 @@ document.addEventListener(`DOMContentLoaded`, () => {
 
 /*
 ============== GROUP 2 LOGIC ==========
-*//*
-edit_button.addEventListener("click",()=>{ 
-    updateFilm();
-})*/
+*/
 window.updateFilm = updateFilm;
 
 /*
 ============== GROUP 3 LOGIC ==========
 */
-
-/*
-    ===========GROUP 3 LOGIC === === === =
 import { films } from "../data/db.js";
 import { listfilms } from "./get-films.js";
 listfilms(films)
@@ -34,6 +28,5 @@ listfilms(films)
 ============== GROUP 4 LOGIC ==========
 
 */
-
 
 import { showDetails } from "./film-details";
