@@ -18,7 +18,12 @@ edit_button.addEventListener("click",()=>{
 })*/
 window.updateFilm=updateFilm;
 
+
 /*
+<<<<<<< HEAD
+============== GROUP 3 LOGIC ==========
+*/
+=======
 
 
 
@@ -26,10 +31,21 @@ window.updateFilm=updateFilm;
 
     *
     /
+>>>>>>> 9f8282c0009f92b099a197137ea82f5f253dddf5
+
+import { films } from "../data/db.js";
+import { listfilms } from "./get-films.js";
+listfilms(films)
+
+
+
 
 /*
-
 ============== GROUP 4 LOGIC ==========
 
+<<<<<<< HEAD
+*/
+
+=======
 */
 import { showDetails } from "./film-details";
