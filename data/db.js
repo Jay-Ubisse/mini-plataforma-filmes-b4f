@@ -20,7 +20,7 @@ export const films = [
   },
   {
     id: 3,
-
+<<<<<<< HEAD
     title: "Crepusculo",
     gender: "Romance",
     year: 2014,
@@ -32,12 +32,12 @@ export const films = [
   {
     id: 4,
     title: "The Beekeeper",
-    gender: "Accao",
+    gender: "Acção",
     year: 2024,
     rate: 5,
     description: "Filme de accao e suspense, de um homem aparentemente comum que esconde um segredo .",
     imageUrl: "https://image.tmdb.org/t/p/original/1vWI4E9Qf135X2cr2AJOZ0CcWS7.jpg",
-
+=======
     title: "Créspulo",
     gender: "Romance",
     year: 2014,
@@ -53,12 +53,12 @@ export const films = [
     rate: 5,
     description: "A verdade por trás dos grooves .",
     imageUrl: "https://image.tmdb.org/t/p/w1280/oKX8t52F25bkWUWVXiAUfTXFnLA.jpg",
-
+>>>>>>> 0963c1223e1d45d86ccb2e6339dffaee1a4b9dd0
   },
   {
     id: 5, 
     title: "Red Notice",
-
+<<<<<<< HEAD
     gender: "Accao",
     year: 2021,
     rate: 5,
@@ -68,11 +68,12 @@ export const films = [
   {
     id: 6,
     title: "Casamento sangrento",
-    gender: " Accao",
+    gender: " Acção",
     year: 2025,
     rate: 5,
     description: "Assassinato em um casamento",
     imageUrl: "https://thaka.bing.com/th/id/OIP.mm1HRcdRuGDeAu_dip_A4gHaEK?w=332&h=187&c=7&r=0&o=5&pid=1.7",
+=======
     gender: "Documentário",
     year: 2014,
     rate: 5,
@@ -87,7 +88,7 @@ export const films = [
     rate: 5,
     description: "On the journey to kill Dev's who use chat GPT",
     imageUrl: "https://image.tmdb.org/t/p/original/1vWI4E9Qf135X2cr2AJOZ0CcWS7.jpg",
-
+>>>>>>> 0963c1223e1d45d86ccb2e6339dffaee1a4b9dd0
   },
 
 ];
