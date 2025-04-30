@@ -1,12 +1,10 @@
 // Função para listar todos os filmes
 
-import {films} from "../data/db.js";
-
-
+import { films } from "../data/db.js";
 
 export function listfilms() {
   window.addEventListener("load", () => {
-    listFilms(films)
+    listFilms(films);
   });
 }
 
@@ -26,7 +24,7 @@ function listFilms(films) {
 
     let p = document.createElement("p");
     p.textContent = film.description;
-    
+
     const detailsBtn = document.createElement("button");
     detailsBtn.classList.add("btn");
     detailsBtn.textContent = "Details";
@@ -40,9 +38,7 @@ function listFilms(films) {
     const deleteBtn = document.createElement("button");
     deleteBtn.classList.add("btn2");
     deleteBtn.textContent = "Delete";
-    deleteBtn.addEventListener("click", () => {
-      
-    }); 
+    deleteBtn.addEventListener("click", () => {});
 
     card.appendChild(img);
     card.appendChild(h2);
@@ -50,7 +46,6 @@ function listFilms(films) {
     card.appendChild(detailsBtn);
     card.appendChild(editBtn);
     card.appendChild(deleteBtn);
-    container.appendChild(card);    
+    container.appendChild(card);
   });
-
 }
