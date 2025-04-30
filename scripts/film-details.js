@@ -10,19 +10,17 @@ const detailsButton = document.getElementById("detailsButton");
 const closeButton = document.getElementsByClassName("close")[0];
 
 
-
-export function showDetails(){
-  
-detailsButton.onclick = function() {
+export function showDetails() {
   detailsDiv.style.display = "block";
   datailsFilms(value)
+  closeButton()
   
 }
   closeButton.onclick = function() {
   detailsDiv.style.display = "none";
 }
 
-}
+
 
 
 let title=document.getElementById("title")

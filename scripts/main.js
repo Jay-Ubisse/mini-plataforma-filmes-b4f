@@ -33,3 +33,7 @@ listfilms(films)
 */
 
 import { showDetails } from "./film-details";
+
+let viewDetails=document.getElementById("details")
+viewDetails.onclick=showDetails()
+
