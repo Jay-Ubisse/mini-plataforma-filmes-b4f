@@ -1,36 +1,30 @@
 // Função para cadastrar novo filme
 import { films } from "../data/db.js";
 
-export function newFilm() {
-    addBtn();
-    isFieldValidated();
-    saveInDb();
-    
-  
-}
- function addBtn() {
-  const addNewFilm_popup = document.getElementById("add_newFilm_popup");
-  const addNewFilmBtn = document.getElementById("add_newFilm_btn");
-  const closePopupBtn = document.getElementById("close_popup_btn");
+
+
+export function addBtn() {
+  const addNewFilmModal = document.getElementById("addNewFilmModal");
+  const addNewFilmBtn = document.getElementById("addNewFilmBtn");
+  const closeModalBtn = document.getElementById("closeModalBtn");
 
   addNewFilmBtn.addEventListener("click", () => {
-    addNewFilm_popup.style.display = "flex";
+    addNewFilmModal.style.display = "flex";
   });
-  closePopupBtn.addEventListener("click", () => {
-    confirm("tem a certeza de que deseja sair?");
-    addNewFilm_popup.style.display = "none";
+  closeModalBtn.addEventListener("click", () => {
+    addNewFilmModal.style.display = "none";
   });
   window.addEventListener("click", (event) => {
-    if (event.target === addNewFilm_popup) {
-      addNewFilm_popup.style.display = "none";
+    if (event.target === addNewFilmModal) {
+      addNewFilmModal.style.display = "none";
     }
   });
 
   return;
 }
 
- function isFieldValidated() {
-  document.addEventListener("DOMContentLoaded", () => {
+export function isFieldValidated() {
+  document.addEventListener("click", () => {
     const form = document.getElementById("addFilmForm");
 
     form.querySelector("title").addEventListener("input", validateTitle);
@@ -38,7 +32,9 @@ export function newFilm() {
     form.querySelector("rate").addEventListener("input", validateRate);
     form.querySelector("year").addEventListener("input", validateYear);
     form.querySelector("image").addEventListener("input", validateImage);
-    form.getElementById("description").addEventListener("input", validateDescription);
+    form
+      .getElementById("description")
+      .addEventListener("input", validateDescription);
   });
 
   function validateTitle() {
@@ -115,78 +111,23 @@ export function newFilm() {
   }
 }
 
- function saveInDb() {
-  document.addEventListener("DOMContentLoaded", () => {
-    const titleInput = document.getElementById("title");
-    const genderInput = document.getElementById("gender");
-    const yearInput = document.getElementById("year");
-    const rateInput = document.getElementById("rate");
-    const descriptionInput = document.getElementById("description");
-    const imageUrlInput = document.getElementById("image");
-    const createFilmBtn = document.getElementById("createFilmBtn");
-    const app = document.getElementById("app");
+export function createFilm() {
+  const titleInput = document.getElementById("title");
+  const genderInput = document.getElementById("gender");
+  const yearInput = document.getElementById("year");
+  const rateInput = document.getElementById("rate");
+  const descriptionInput = document.getElementById("description");
+  const imageUrlInput = document.getElementById("image");
 
-    localStorage.setItem("films", JSON.stringify(films));
-    let db = localStorage.getItem("films");
-    let jsonDB = JSON.parse(db);
-    renderFilms(jsonDB);
+  const data = {
+    id: 3,
+    title: titleInput.value,
+    gender: genderInput.value,
+    year: parseInt(yearInput.value),
+    rate: parseFloat(rateInput.value),
+    description: descriptionInput.value,
+    imageUrl: imageUrlInput.value,
+  };
 
-    window.addEventListener("load", () => {
-      let db = localStorage.getItem("films");
-      let jsonDB = JSON.parse(db);
-      renderFilms(jsonDB);
-    });
-
-    createFilmBtn.addEventListener("click", (e) => {
-      e.preventDefault();
-      db = localStorage.getItem("films");
-      jsonDB = JSON.parse(db);
-
-      const id = jsonDB.length + 1;
-
-      const newFilm = {
-        id,
-        title: titleInput.value,
-        gender: genderInput.value,
-        year: parseInt(yearInput.value),
-        rate: parseFloat(rateInput.value),
-        description: descriptionInput.value,
-        imageUrl: imageUrlInput.value,
-      };
-
-      jsonDB.push(newFilm);
-      localStorage.setItem("films", JSON.stringify(jsonDB));
-      alert("Filme criado com sucesso!");
-      renderFilms(jsonDB);
-
-      titleInput.value = "";
-      genderInput.value = "";
-      yearInput.value = "";
-      rateInput.value = "";
-      descriptionInput.value = "";
-      imageUrlInput.value = "";
-    });
-
-    function renderFilms() {
-      const db = jsonDB.parse(localStorage.getItem("films"));
-      app.innerHTML = "";
-
-      db.forEach((film) => {
-        const filmCard = document.createElement("div");
-        filmCard.style.border = "1px solid black";
-        filmCard.style.margin = "10px";
-        filmCard.style.padding = "10px";
-
-        filmCard.innerHTML = `
-                <h3>${film.title}</h3>
-                <img src="${film.imageUrl}" width="100" />
-                <p><strong>Género:</strong> ${film.gender}</p>
-                <p><strong>Ano:</strong> ${film.year}</p>
-                <p><strong>Nota:</strong> ${film.rate}</p>
-                <p>${film.description}</p>
-              `;
-        app.appendChild(filmCard);
-      });
-    }
-  });
+  console.log(data);
 }

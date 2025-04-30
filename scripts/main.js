@@ -1,14 +1,25 @@
 // Arquivo principal que inicializa a aplicação
 import { updateFilm } from "./update-film.js";
-import { newFilm } from "./create-film.js";
+import { addBtn } from "./create-film.js";
+import { isFieldValidated } from "./create-film.js";
+import { createFilm } from "./create-film.js";
 /*
 
 ============== GROUP 1 LOGIC ==========
 
 */
-document.addEventListener(`DOMContentLoaded`, () => {
-    newFilm();
+//add new film button
+/*document.addEventListener(`DOMContentLoaded`, () => {
+  newFilm();
+});*/
 
+ 
+ addBtn();
+document.getElementById("addFilmForm").addEventListener("submit", (e) => {
+  e.preventDefault();
+  isFieldValidated();
+  createFilm();
+  
 });
 
 /*
