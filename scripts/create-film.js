@@ -122,8 +122,6 @@ export function createFilm() {
   const rateInput = document.getElementById("rate");
   const descriptionInput = document.getElementById("description");
   const imageUrlInput = document.getElementById("image");
-  const createFilmBtn = document.getElementById("createFilmBtn");
-  const app = document.getElementById("app");
 
   const data = {
     id: 3,
@@ -136,57 +134,4 @@ export function createFilm() {
   };
 
   console.log(data);
-
-  localStorage.setItem("films", JSON.stringify(films));
-  let db = localStorage.getItem("films");
-  let jsonDB = JSON.parse(db);
-  renderFilms(jsonDB);
-
-  window.addEventListener("load", () => {
-    let db = localStorage.getItem("films");
-    let jsonDB = JSON.parse(db);
-    renderFilms(jsonDB);
-  });
-
-  createFilmBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-    db = localStorage.getItem("films");
-    jsonDB = JSON.parse(db);
-
-    const id = jsonDB.length + 1;
-
-    jsonDB.push(newFilm);
-    localStorage.setItem("films", JSON.stringify(jsonDB));
-    alert("Filme criado com sucesso!");
-    renderFilms(jsonDB);
-
-    titleInput.value = "";
-    genderInput.value = "";
-    yearInput.value = "";
-    rateInput.value = "";
-    descriptionInput.value = "";
-    imageUrlInput.value = "";
-  });
-
-  function renderFilms() {
-    const db = jsonDB.parse(localStorage.getItem("films"));
-    app.innerHTML = "";
-
-    db.forEach((film) => {
-      const filmCard = document.createElement("div");
-      filmCard.style.border = "1px solid black";
-      filmCard.style.margin = "10px";
-      filmCard.style.padding = "10px";
-
-      filmCard.innerHTML = `
-                <h3>${film.title}</h3>
-                <img src="${film.imageUrl}" width="100" />
-                <p><strong>Género:</strong> ${film.gender}</p>
-                <p><strong>Ano:</strong> ${film.year}</p>
-                <p><strong>Nota:</strong> ${film.rate}</p>
-                <p>${film.description}</p>
-              `;
-      app.appendChild(filmCard);
-    });
-  }
 }
