@@ -1,6 +1,15 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 .vscode
 settings.json
 =======
 .vscode
 >>>>>>> g1
+=======
+.vscode/launch.json
+.vscode
+=======
+.vscode
+settings.json
+>>>>>>> 9f8282c0009f92b099a197137ea82f5f253dddf5
+>>>>>>> ee3f9fd0bf21c396f6ce80e93e20ec4a26fdca2e

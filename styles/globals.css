@@ -1,6 +1,34 @@
+:root{
+  --font: 4em;
+  --subtitle: 1.9em;
+  --paragraph: 1.05em;
+  --shadow: 0px 10px 50px rgb(0, 0, 0);
+  --color: rgb(207, 214, 250);
+  --button-color: #6769e6;
+}
+
+@keyframes b4f { 5%, 50% {
+  transform: translateX(25%);
+  color: var(--color);
+}
+  
+
+  60% {
+    transition: translateY(-50%);
+  }
+
+  40% {
+    transition: translateX(-70%);
+  }
+
+
+}
+
+
 body {
   font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
+  /*background-color: #7d85f5e3;*/
+  background-image: url("bluegradiente.jpg");
   padding: 2rem;
   color: #333;
 }
