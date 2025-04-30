@@ -10,39 +10,45 @@
 
   <body>
     <h1>🎬 Mini Plataforma de Filmes</h1>
-   <!--Botao para abrir pop up para adicionar novo filme-->
-    <button class="add_newFilm_btn" id="add_newFilm_btn"> Adicionar Novo Filme</button>
- 
+    <!--Botao para abrir pop up para adicionar novo filme-->
+    <button class="add_newFilm_btn" id="add_newFilm_btn">
+      Adicionar Novo Filme
+    </button>
+    <div id="app"></div>
     <section class="add_newFilm_popup" id="add_newFilm_popup">
-      <div class="popup-content"> 
-         <!--Botao para fechar pop up-->
+      <div class="popup-content">
+        <!--Botao para fechar pop up-->
         <span class="close_popup_btn" id="close_popup_btn"> &times;</span>
-      
+
         <form action="" method="post" id="addFilmForm">
           <label for="title">Titulo:</label>
           <input type="text" id="title" name="title" />
-          <span class="span-required">Nome deve ter no mínimo 3 caracteres</span><br>
+          <span class="span-required">Nome deve ter no mínimo 3 caracteres</span
+          ><br />
 
           <label for="gender">Género:</label>
           <input type="text" id="gender" name="gender" />
-          <span class="span-required">O género é obrigatório</span><br>
+          <span class="span-required">O género é obrigatório</span><br />
 
           <label for="rate">Classificação(1-5):</label>
           <input type="number" id="rate" name="rate" max="5" min="1" />
-          <span class="span-required">A nota deve ser entre 1 e 5</span><br>
+          <span class="span-required">A nota deve ser entre 1 e 5</span><br />
 
           <label for="year">Ano de Lançamento:</label>
-          <input type="number" name="year" id="year" max="2025" min="1900"/>
-          <span class="span-required">O ano é obrigatório e deve ser válido</span><br>
+          <input type="number" name="year" id="year" max="2025" min="1900" />
+          <span class="span-required"
+            >O ano é obrigatório e deve ser válido</span
+          ><br />
 
           <label for="image">URL:</label>
           <input type="text" id="image" name="image" />
-          <span class="span-required">A URL da imagem é obrigatória</span><br>
+          <span class="span-required">A URL da imagem é obrigatória</span><br />
 
           <label for="description">Descrição:</label>
           <textarea id="description" name="description"></textarea>
-          <span class="span-required">A descrição não pode estar vazia</span><br>
-          
+          <span class="span-required">A descrição não pode estar vazia</span
+          ><br />
+
           <button type="submit" id="createFilmBtn">Cadastrar</button>
         </form>
       </div>
