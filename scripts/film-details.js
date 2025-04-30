@@ -1,4 +1,5 @@
-//import { films } from "../data/db"
+import { films } from "../data/db"
+
 
 const detailsDiv = document.getElementById("content");
 
@@ -9,15 +10,18 @@ const detailsButton = document.getElementById("detailsButton");
 const closeButton = document.getElementsByClassName("close")[0];
 
 
+
+export function showDetails(){
+  
 detailsButton.onclick = function() {
   detailsDiv.style.display = "block";
   datailsFilms(value)
   
 }
-
-
-closeButton.onclick = function() {
+  closeButton.onclick = function() {
   detailsDiv.style.display = "none";
+}
+
 }
 
 
