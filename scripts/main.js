@@ -30,5 +30,4 @@ const detailsBtn = document.getElementById("detailsButton");
 detailsBtn.addEventListener("click", () => {
   const film = getFilm(detailsBtn.value);
 
-  console.log(film);
 });
