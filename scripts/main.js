@@ -19,9 +19,9 @@
 
 import { films } from "../data/db.js";
 import { listfilms } from "./get-films.js";
+listfilms(films)
 import { deleteFilm } from "./delete-film.js";
-listfilms(films);
-removeFilm(id);
+removeFilm(deleteFilm);
 
 
 

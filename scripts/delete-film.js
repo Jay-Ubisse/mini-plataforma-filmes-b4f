@@ -21,9 +21,9 @@ modal.style.color="#6769e6";
 delete_button.addEventListener("click", ()=>{
     modal.style.display="block";
 const content=document.getElementById("modal-content");
-
+listFilms
 });
- 
+
 
 
  //estilizacao do botao nao
@@ -48,6 +48,6 @@ yesButton.addEventListener("click",(removeFilm)=>{
 export function removeFilm(id){
     for(let i=0;i<films;i++){
         films[i].addEventListener('click', false)
-       films.splice(i, 1);
+        films.splice(i, 1);
     
 }}
