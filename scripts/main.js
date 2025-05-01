@@ -23,11 +23,24 @@ import { getFilm } from "./film-details.js";
 /*
 
 ============== GROUP 4 LOGIC ==========
+
+
 */
+const detailsButton = document.getElementById("details");
+const value=detailsButton.getAttribute('value')
+const closeButton = document.getElementsByClassName("close")[0];
+const detailsDiv = document.getElementById("content");
 
-const detailsBtn = document.getElementById("detailsButton");
 
-detailsBtn.addEventListener("click", () => {
-  const film = getFilm(detailsBtn.value);
+
+detailsButton.addEventListener("click", () => {
+  detailsDiv.style.display = "block";
+  getFilm(value)
+
+});
+
+closeButton.addEventListener("click", () => {
+  detailsDiv.style.display = "none";
+  
 
 });
