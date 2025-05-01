@@ -1,6 +1,24 @@
+:root {
+    /*Tipografia*/
+  --font: 4em;
+  --title: 4em;
+  --subtitle: 1.9em;
+  --paragraph: 1.05em;
+  /*Cores*/
+  --shadow: 0px 10px 50px rgb(0, 0, 0);
+  --color: rgb(207, 214, 250);
+  --button-color: #6769e6;
+  --colorText: #cfd6fa;
+  --colorBtn: #6769e6;
+  --bgPopup: #001238;
+  --screenBgPopup: rgba(0, 0, 0, 0.6);
+  --sombra: 0px 10px 50px #000000;
+}
+
 body {
   font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
+  /*background-color: #7d85f5e3;*/
+  background-image: url("bluegradiente.jpg");
   padding: 2rem;
   color: #333;
 }

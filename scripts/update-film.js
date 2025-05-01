@@ -1,7 +1,8 @@
 // Função para editar filme existente
-import { films } from "../data/db.js";
+import { db } from "./utils.js";
+import{isFieldValidated} from "./create-film.js";
 
-//function setAndUpdate(id) {  localStorage.setItem("id", id);  updateFilm();}
+
 //create form and styling
 export function updateFilm() {
   const form = document.createElement("form");
@@ -50,8 +51,8 @@ export function updateFilm() {
   //show the form
   document.body.appendChild(form);
 
-  const id = Number(localStorage.getItem("id"));
-  const film = films.find((film) => film.id === id);
+  //const id = Number(localStorage.getItem("id"));
+  const film = db.find((db) => db.id === id);
 
   if (!film) {
     alert("Filme não encontrado com o ID: " + id);
@@ -150,8 +151,9 @@ function isValidateForm() {
 
 //create popup for form
 const edit_button = document.getElementById("edit_button");
+
 function saveUpdateFilm() {
-  if (!isValidateForm()) {
+  if (!isFieldValidated()) {
     return "Retifica os inputs antes de salvar";
   }
   const id = Number(localStorage.getItem("id"));
