@@ -51,8 +51,8 @@ export function updateFilm() {
   //save the form
   const saveButton = form.querySelector("#button");
   saveButton.addEventListener("click", () => {
-    alert("Filme salvo com sucesso");
     saveUpdateFilm();
+    alert("Filme salvo com sucesso");
     document.body.removeChild(form);
   });
 
@@ -74,12 +74,14 @@ export function updateFilm() {
 function preFillForm(films) {
   if(!films|| films.length===0)return;
   const film =films[0];
+
   document.getElementById("titleInput").value =film.titleInput;
-  document.getElementById("genderInput").value=films.genderInput ;
-  document.getElementById("yearInput").value=films.yearInput  ;
-  document.getElementById("rateInput").value =films.rateInput ;
-  document.getElementById("descriptionInput").value=films.descriptionInput  ;
-  document.getElementById("imageUrlInput").value=films.imageUrlInput  ;
+  document.getElementById("genderInput").value=film.genderInput ;
+  document.getElementById("yearInput").value=film.yearInput  ;
+  document.getElementById("rateInput").value =film.rateInput ;
+  document.getElementById("descriptionInput").value=film.descriptionInput  ;
+  document.getElementById("imageUrlInput").value=film.imageUrlInput  ;
+ 
 }
 
 //create popup for form
@@ -103,11 +105,12 @@ function saveUpdateFilm() {
       year: parseInt(yearInput.value),
       rate: parseFloat(rateInput.value),
       description: descriptionInput.value,
-      imageUrl: imageUrlInput.value,    };
+      imageUrl: imageUrlInput.value,};
   
     updateDb.push(data);
+    const updateFimlDb =films.indexOf(data);
   
-    localStorage.setItem("films", JSON.stringify(updateDb));
+    localStorage.setItem("films", JSON.stringify(updateFimlDb));
   
     return {
       status: 201,
