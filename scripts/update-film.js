@@ -1,6 +1,8 @@
 // Função para editar filme existente
 import { db } from "./utils.js";
-import{isFieldValidated} from "./create-film.js";
+import{ isFieldValidated } from "./create-film.js";
+import { films } from "../data/db.js";
+
 
 
 //create form and styling
@@ -20,26 +22,20 @@ export function updateFilm() {
   form.style.left = "50%";
   form.style.zIndex = "1000";
   form.innerHTML = `
- <span id= "close_button">&times;</span>
-    <label for="title">Título</label>
- <input type="text" id="title" name="title" required><br>
-
- <label for="Gender">Genero</label>
- <input type="text" id= "gender" name="gender" required><br>
- 
- <label for="year">Ano</label>
- <input type="number" max="2025" id= "year" name="year" required><br>
-
- <label for="rate">Avaliação</label>
- <input type="number"  min="1" max="5" id="rate" name="rate" required><br>
-
- <label for="description">Descrição</label>
- <textarea type="text"  id="description" name="description"></textarea>
-
- <label for="imageUrl">Url da Imagem</label>
- <input type="url"  id="imageUrl" name = "imageUrl" required><br>
- <button  id="button" >Salvar</button>
- `;
+        <span id= "close_button">&times;</span>
+        <label for="title">Título</label>
+        <input type="text" id="titleInput" name="title" required><br>
+        <label for="Gender">Genero</label>
+        <input type="text" id= "genderInput" name="gender" required><br>
+        <label for="year">Ano</label>
+        <input type="number" max="2025" id= "yearInput" name="year" required><br>
+        <label for="rate">Avaliação</label>
+        <input type="number"  min="1" max="5" id="rateInput" name="rate" required><br>
+        <label for="description">Descrição</label>
+        <textarea type="text"  id="descriptionInput" name="description"></textarea>
+        <label for="imageUrl">Url da Imagem</label>
+        <input type="url"  id="imageUrlInput" name = "imageUrl" required><br>
+        <button  id="button" >Salvar</button> `;
   //styling the close button
   const closeButton = form.querySelector("#close_button");
   closeButton.style.position = "absolute";
@@ -50,16 +46,7 @@ export function updateFilm() {
   closeButton.style.color = "red";
   //show the form
   document.body.appendChild(form);
-
-  //const id = Number(localStorage.getItem("id"));
-  const film = db.find((db) => db.id === id);
-
-  if (!film) {
-    alert("Filme não encontrado com o ID: " + id);
-    return;
-  }
-
-  preFillForm(film);
+  preFillForm(films[0]);
 
   //save the form
   const saveButton = form.querySelector("#button");
@@ -85,93 +72,48 @@ export function updateFilm() {
 
 //fill the form
 function preFillForm(films) {
-  document.getElementById("title").value = films.title;
-  document.getElementById("gender").value = films.gender;
-  document.getElementById("year").value = films.year;
-  document.getElementById("rate").value = films.rate;
-  document.getElementById("description").value = films.description;
-  document.getElementById("imageUrl").value = films.imageUrl;
-}
-function isValidateForm() {
-  let valido = true;
-  const titleInput = document.getElementById("title");
-  const genderInput = document.getElementById("gender").value;
-  const yearInput = parseInt(document.getElementById("year").value);
-  const rateInput = parseFloat(document.getElementById("rate").value);
-  const imageUrlInput = document.getElementById("imageUrl").value;
-  const currentYear = new Date().getFullYear();
-  const titleInputEl = document.getElementById("title");
-
-  titleInput = titleInputEl.value;
-
-  if (titleInput.length < 3) {
-    titleInput.style.borderColor = "red";
-    valido = false;
-  } else {
-    titleInput.style.borderColor = "green";
-    valido = false;
-  }
-
-  if (!isNaN(genderInput)) {
-    genderInput.style.borderColor = "red";
-    valido = false;
-    return "O gênero não pode conter apenas números.";
-  } else {
-    genderInput.style.borderColor = "green";
-  }
-
-  if (yearInput < 1888 || yearInput > currentYear) {
-    yearInput.style.borderColor = "red";
-    valido = false;
-    return "Ano inválido. Deve estar entre 1888 $(currentYear)";
-  } else {
-    yearInput.style.borderColor = "green";
-  }
-
-  if (rateInput < 0 || rateInput > 5) {
-    rateInput.style.borderColor = "red";
-    valido = false;
-    return "Avaliação deve estar entre 0 e 5.";
-  } else {
-    rateInput.style.borderColor = "green";
-  }
-
-  if (
-    !imageUrlInput.startsWith("http://") &&
-    !imageUrlInput.startsWith("https://")
-  ) {
-    imageUrlInput.style.borderColor = "red";
-    valido = false;
-    return "A URL da imagem deve iniciar por http:// ou https://";
-  } else {
-    imageUrlInput.style.borderColor = "green";
-  }
-  return valido;
+  if(!films|| films.length===0)return;
+  const film =films[0];
+  document.getElementById("titleInput").value =film.titleInput;
+  document.getElementById("genderInput").value=films.genderInput ;
+  document.getElementById("yearInput").value=films.yearInput  ;
+  document.getElementById("rateInput").value =films.rateInput ;
+  document.getElementById("descriptionInput").value=films.descriptionInput  ;
+  document.getElementById("imageUrlInput").value=films.imageUrlInput  ;
 }
 
 //create popup for form
 const edit_button = document.getElementById("edit_button");
 
 function saveUpdateFilm() {
-  if (!isFieldValidated()) {
+  if (isFieldValidated()) {
     return "Retifica os inputs antes de salvar";
   }
-  const id = Number(localStorage.getItem("id"));
-  const i = films.findIndex((film) => film.id === id);
-  if (!i) {
-    return "filme nao Encontrado";
+      const titleInput = document.getElementById("title");
+      const genderInput = document.getElementById("gender");
+      const yearInput = document.getElementById("year");
+      const rateInput = document.getElementById("rate");
+      const descriptionInput = document.getElementById("description");
+      const imageUrlInput = document.getElementById("image");
+      const actualDb = JSON.parse(db);
+      const data = {
+      id: actualDb.length,
+      title: titleInput.value,
+      gender: genderInput.value,
+      year: parseInt(yearInput.value),
+      rate: parseFloat(rateInput.value),
+      description: descriptionInput.value,
+      imageUrl: imageUrlInput.value,    };
+  
+    updateDb.push(data);
+  
+    localStorage.setItem("films", JSON.stringify(updateDb));
+  
+    return {
+      status: 201,
+      message: "Filme Editado com sucesso!",
+      body: actualDb,
+    };
   }
+  
 
-  films[i] = {
-    id,
-    title: document.getElementById("title").value,
-    gender: document.getElementById("gender").value,
-    year: document.getElementById("year").value,
-    rate: document.getElementById("rate").value,
-    description: document.getElementById("description").value,
-    imageUrl: document.getElementById("imageUrl").value,
-  };
-  localStorage.setItem("films", JSON.stringify(films));
-  alert("O filme foi editado com sucesso.");
-  location.reload();
-}
