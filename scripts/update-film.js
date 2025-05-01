@@ -3,8 +3,6 @@ import { db } from "./utils.js";
 import{ isFieldValidated } from "./create-film.js";
 import { films } from "../data/db.js";
 
-
-
 //create form and styling
 export function updateFilm() {
   const form = document.createElement("form");
@@ -46,7 +44,7 @@ export function updateFilm() {
   closeButton.style.color = "red";
   //show the form
   document.body.appendChild(form);
-  preFillForm(films[0]);
+  preFillForm(films);
 
   //save the form
   const saveButton = form.querySelector("#button");
@@ -71,17 +69,23 @@ export function updateFilm() {
 }
 
 //fill the form
-function preFillForm(films) {
+function preFillForm() {
   if(!films|| films.length===0)return;
   const film =films[0];
+  const titleInput = document.getElementById("titleInput");
+  const genderInput = document.getElementById("genderInput");
+  const yearInput = document.getElementById("yearInput");
+  const rateInput = document.getElementById("rateInput");
+  const descriptionInput = document.getElementById("descriptionInput");
+  const imageUrlInput = document.getElementById("imageUrlInput");
 
-  document.getElementById("titleInput").value =film.titleInput;
-  document.getElementById("genderInput").value=film.genderInput ;
-  document.getElementById("yearInput").value=film.yearInput  ;
-  document.getElementById("rateInput").value =film.rateInput ;
-  document.getElementById("descriptionInput").value=film.descriptionInput  ;
-  document.getElementById("imageUrlInput").value=film.imageUrlInput  ;
- 
+  titleInput.value = film.title || "";
+  genderInput.value = film.gender || "";
+  yearInput.value = film.year || "";
+  rateInput.value = film.rate || "";
+  descriptionInput.value = film.description || "";
+  imageUrlInput.value = film.imageUrl || "";
+
 }
 
 //create popup for form
@@ -89,7 +93,8 @@ const edit_button = document.getElementById("edit_button");
 
 function saveUpdateFilm() {
   if (isFieldValidated()) {
-    return "Retifica os inputs antes de salvar";
+   alert ("Retifica os inputs antes de salvar");
+   return;
   }
       const titleInput = document.getElementById("title");
       const genderInput = document.getElementById("gender");
@@ -98,6 +103,7 @@ function saveUpdateFilm() {
       const descriptionInput = document.getElementById("description");
       const imageUrlInput = document.getElementById("image");
       const actualDb = JSON.parse(db);
+      
       const data = {
       id: actualDb.length,
       title: titleInput.value,
@@ -108,9 +114,8 @@ function saveUpdateFilm() {
       imageUrl: imageUrlInput.value,};
   
     updateDb.push(data);
-    const updateFimlDb =films.indexOf(data);
   
-    localStorage.setItem("films", JSON.stringify(updateFimlDb));
+    localStorage.setItem("films", JSON.stringify(updateDb));
   
     return {
       status: 201,
