@@ -12,11 +12,12 @@ import {updateFilm} from "./update-film.js";
 
 ============== GROUP 2 LOGIC ==========
 
-*//*
-edit_button.addEventListener("click",()=>{ 
+*/
+const update_bnt = document.getElementById("update_bnt");
+update_bnt.addEventListener("click",()=>{ 
     updateFilm();
-})*/
-window.updateFilm=updateFilm;
+})
+
 
 /*
 

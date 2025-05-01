@@ -1,10 +1,7 @@
 // Função para editar filme existente
 import { films } from "../data/db.js";
 
-function setAndUpdate(id) {
-  localStorage.setItem("id", id);
-  updateFilm();
-}
+//function setAndUpdate(id) {  localStorage.setItem("id", id);  updateFilm();}
 //create form and styling
 export function updateFilm() {
   const form = document.createElement("form");
