@@ -9,7 +9,7 @@ const closeButton = document.getElementsByClassName("close")[0];
 
 detailsButton.onclick = function showDetails() {
   detailsDiv.style.display = "block";
-  datailsFilms(value);
+  detailsFilms(value);
   closeButton();
 };
 closeButton.onclick = function () {
