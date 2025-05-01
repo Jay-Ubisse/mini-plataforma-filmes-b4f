@@ -1,10 +1,10 @@
-import { films } from "../data/db"
+import { films } from "../data/db.js"
 
 
 const detailsDiv = document.getElementById("content");
 
 
-const detailsButton = document.getElementById("detailsButton");
+const detailsButton = document.getElementById("details");
 
 
 const closeButton = document.getElementsByClassName("close")[0];
@@ -12,8 +12,8 @@ const closeButton = document.getElementsByClassName("close")[0];
 
 export function showDetails() {
   detailsDiv.style.display = "block";
-  datailsFilms(value)
-  closeButton()
+  detailsFilms(value)
+  showDetails()
   
 }
   closeButton.onclick = function() {
@@ -55,10 +55,11 @@ function renderFilms(jsonDB) {
 }
 
 let value=detailsButton.getAttribute("value")
-function datailsFilms(value){
- for(let i=0;i<length;i++){
+function detailsFilms(value){
+ for(let i=0;i<films.length;i++){
   if(value===films[0].id){
-    renderFilms(jsonDB)
+    renderFilms(jsonDB);
+  
   }
  }
 
