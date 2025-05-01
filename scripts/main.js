@@ -27,12 +27,7 @@ document.getElementById("addFilmForm").addEventListener("submit", (e) => {
 /*
 ============== GROUP 2 LOGIC ==========
 */
-window.updateFilm = updateFilm;
-/*
-document.getElementById("edit").addEventListener("submit", (e) => {
-    e.preventDefault();
-    updateFilm();
-});*/
+
 /*
 ============== GROUP 3 LOGIC ==========
 */
