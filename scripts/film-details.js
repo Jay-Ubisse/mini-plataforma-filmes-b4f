@@ -1,45 +1,67 @@
-import { films } from "../data/db.js";
+import { films } from "../data/db"
+
 
 const detailsDiv = document.getElementById("content");
+
 
 const detailsButton = document.getElementById("details");
 
 
 const closeButton = document.getElementsByClassName("close")[0];
 
-detailsButton.onclick = function showDetails() {
+
+export function showDetails() {
   detailsDiv.style.display = "block";
-  detailsFilms(value);
-  closeButton();
-};
-closeButton.onclick = function () {
+  detailsFilms(value)
+  
+  
+}
+  closeButton.onclick = function() {
   detailsDiv.style.display = "none";
-};
-
-let title = document.getElementById("title");
-let image = document.getElementById("image");
-let gender = document.getElementById("gender");
-let year = document.getElementById("year");
-let rate = document.getElementById("rate");
-let description = document.getElementById("description");
-
-
-
-
-export function getFilm(value) {
-  const film = films.find((film) => film.id === Number(value));
-
-  if (!film) return "Filme não encontrado!";
-
-  return function(){
-    detailsDiv.appendChild(image).textContent(film.imageUrl)
-    detailsDiv.appendChild(title).textContent(film.title)
-    detailsDiv.appendChild(gender).textContent(film.gender)
-    detailsDiv.appendChild(year).textContent(film.year)
-    detailsDiv.appendChild(rate).textContent(film.rate)
-    detailsDiv.appendChild(description).textContent(film.description)
-  }
-
 }
 
+
+
+
+let title=document.getElementById("title")
+let image=document.getElementById("image")
+let gender=document.getElementById("gender")
+let year=document.getElementById("year")
+let rate=document.getElementById("rate")
+let description=document.getElementById("description")
+
+
+
+let db = localStorage.getItem("films");
+let jsonDB = JSON.parse(db);
+
+function renderFilms(jsonDB) {
+  detailsDiv.innerHTML = "";
+  jsonDB.map((film) => {
+    title.textContent = film.title;
+    image.textContent = film.imageUrl;
+    gender.textContent = film.gender;
+    year.textContent = film.year;
+    rate.textContent = film.rate;
+    description.textContent = film.description;
+    detailsDiv.appendChild(title);
+    detailsDiv.appendChild(gender);
+    detailsDiv.appendChild(year);
+    detailsDiv.appendChild(rate);
+    detailsDiv.appendChild(description);
+
+
+  });
+}
+
+let value=detailsButton.getAttribute("value")
+function datailsFilms(value){
+ for(let i=0;i<films.length;i++){
+  if(value===films[i].id){
+    renderFilms(jsonDB)
+  }
+ }
+
+  
+}
 
