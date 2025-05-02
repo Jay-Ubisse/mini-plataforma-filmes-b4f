@@ -1,5 +1,5 @@
 //Função para eliminar filme
-import { films } from "../data/db.js";
+//import { films } from "../data/db.js";
 const modal = document.getElementById("modal");
 modal.style.width = "300px";
 modal.style.height = "100px";
@@ -14,9 +14,8 @@ modal.style.backgroundImage = "url(../styles/bluegradiente.jpg)";
 modal.style.color = "#6769e6";
 
 //funcao que sera chamada ao clicar o botao
-export function deleteFilm(id) {
+export function deleteFilm() {
   modal.style.display = "block";
-  const content = document.getElementById("modalContent");
   //estilizacao do botao nao
   const noButton = document.getElementById("noButton");
   noButton.style.color = "red";
@@ -27,6 +26,12 @@ export function deleteFilm(id) {
   //Eliminar o filme da base de dados ao clicar o sim
   const yesButton = document.getElementById("yesButton");
   yesButton.style.color = "green";
+  yesButton.addEventListener("click",()=>{
+  alert("Filme eliminado com sucesso");
+  modal.style.display = "none";
+  })
+
+
   localStorage.setItem("films", JSON.stringify(films));
 
   let db = localStorage.getItem("film");
@@ -38,11 +43,11 @@ export function deleteFilm(id) {
     let jsonDB = JSON.parse(db);
     deleteFilm(jsonDB);
   });
-const idDelete=document.getElementById("filmCard")
-  idDelete = jsonDB.length - 1;
+const idDeleted=document.getElementById("filmCard")
+  idDeleted = jsonDB.length - 1;
 
   jsonDB.pop({
-    id: 1,
+    id: idDeleted,
     title: "O Grande Truque",
     gender: "Drama",
     year: 2006,
@@ -50,8 +55,4 @@ const idDelete=document.getElementById("filmCard")
     description: "Dois mágicos rivais competem ferozmente.",
     imageUrl: "https://github.com/jay-ubisse.png",
   });
-  //Ocultar a card eliminada
-  const hideCard = document.getElementById("filmCard");
-  hideCard.style.display = "none";
-  alert("Filme eliminado com sucesso");
 }
