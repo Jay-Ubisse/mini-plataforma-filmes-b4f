@@ -13,9 +13,10 @@ import {updateFilm} from "./update-film.js";
 ============== GROUP 2 LOGIC ==========
 
 */
-const update_bnt = document.getElementById("update_bnt");
-update_bnt.addEventListener("click",()=>{ 
-    updateFilm();
+const updateButton = document.querySelector("updateButton");
+const value=updateButton.getAttribute("value");
+updateButton.addEventListener("click",()=>{ 
+    updateFilm(value);
 })
 
 
