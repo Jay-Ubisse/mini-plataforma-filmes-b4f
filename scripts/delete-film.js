@@ -1,5 +1,5 @@
 //Função para eliminar filme
-//import { films } from "../data/db.js";
+import { films } from "../data/db.js";
 const modal = document.getElementById("modal");
 modal.style.width = "300px";
 modal.style.height = "100px";
@@ -29,11 +29,9 @@ export function deleteFilm() {
   yesButton.addEventListener("click",()=>{
   alert("Filme eliminado com sucesso");
   modal.style.display = "none";
-  })
+  });
 
-
-  localStorage.setItem("films", JSON.stringify(films));
-
+  /*localStorage.setItem("films", JSON.stringify(films));
   let db = localStorage.getItem("film");
   let jsonDB = JSON.parse(db);
   deleteFilm(jsonDB);
@@ -43,6 +41,7 @@ export function deleteFilm() {
     let jsonDB = JSON.parse(db);
     deleteFilm(jsonDB);
   });
+
 const idDeleted=document.getElementById("filmCard")
   idDeleted = jsonDB.length - 1;
 
@@ -54,5 +53,20 @@ const idDeleted=document.getElementById("filmCard")
     rate: 5,
     description: "Dois mágicos rivais competem ferozmente.",
     imageUrl: "https://github.com/jay-ubisse.png",
-  });
+  });*/
+}
+export function removeElement(value){
+  
+  const film=films.find((film)=>film.id===Number(value));
+  if (film) {
+    const index=films.indexOf(value);
+    for (let i=0 ; i< films.length;i++) {
+      
+    }
+  }
+  
+  
+  
+  
+  
 }

@@ -18,9 +18,12 @@
 ============== GROUP 3 LOGIC ==========
 */
 import { deleteFilm} from "../scripts/delete-film.js";
+import { removeElement } from "../scripts/delete-film.js";
 const deletebtn=document.getElementById("deleteButton");
+const value=deletebtn.getAttribute("value");
 deletebtn.addEventListener("click", ()=>{
 deleteFilm();
+removeElement(value);
 });
 
 /*
