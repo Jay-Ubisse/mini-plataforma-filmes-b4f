@@ -13,11 +13,15 @@ import {updateFilm} from "./update-film.js";
 ============== GROUP 2 LOGIC ==========
 
 */
-const updateButton = document.querySelector("updateButton");
-const value=updateButton.getAttribute("value");
-updateButton.addEventListener("click",()=>{ 
+const updateButton = document.querySelectorAll(".updateButton");
+
+updateButton.forEach(updateButton => {
+    const value=updateButton.getAttribute("value");
+    updateButton.addEventListener("click",()=>{ 
     updateFilm(value);
 })
+});
+
 
 
 /*
