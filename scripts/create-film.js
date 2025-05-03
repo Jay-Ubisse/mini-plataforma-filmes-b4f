@@ -1,7 +1,12 @@
 // Função para cadastrar novo filme
+<<<<<<< HEAD
 import { films } from "../data/db.js";
 
 
+=======
+
+import { db } from "./utils.js";
+>>>>>>> c78400ec56ae641821cd0a5faee15f47cd32d52d
 
 export function addBtn() {
   const addNewFilmModal = document.getElementById("addNewFilmModal");
@@ -11,9 +16,17 @@ export function addBtn() {
   addNewFilmBtn.addEventListener("click", () => {
     addNewFilmModal.style.display = "flex";
   });
+<<<<<<< HEAD
   closeModalBtn.addEventListener("click", () => {
     addNewFilmModal.style.display = "none";
   });
+=======
+
+  closeModalBtn.addEventListener("click", () => {
+    addNewFilmModal.style.display = "none";
+  });
+
+>>>>>>> c78400ec56ae641821cd0a5faee15f47cd32d52d
   window.addEventListener("click", (event) => {
     if (event.target === addNewFilmModal) {
       addNewFilmModal.style.display = "none";
@@ -119,8 +132,15 @@ export function createFilm() {
   const descriptionInput = document.getElementById("description");
   const imageUrlInput = document.getElementById("image");
 
+<<<<<<< HEAD
   const data = {
     id: 3,
+=======
+  const actualDb = JSON.parse(db);
+
+  const data = {
+    id: actualDb.length + 1,
+>>>>>>> c78400ec56ae641821cd0a5faee15f47cd32d52d
     title: titleInput.value,
     gender: genderInput.value,
     year: parseInt(yearInput.value),
@@ -129,5 +149,17 @@ export function createFilm() {
     imageUrl: imageUrlInput.value,
   };
 
+<<<<<<< HEAD
   console.log(data);
+=======
+  actualDb.push(data);
+
+  localStorage.setItem("films", JSON.stringify(actualDb));
+
+  return {
+    status: 201,
+    message: "Filme cadastrado com sucesso!",
+    body: actualDb,
+  };
+>>>>>>> c78400ec56ae641821cd0a5faee15f47cd32d52d
 }

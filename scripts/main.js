@@ -26,7 +26,22 @@ document.getElementById("addFilmForm").addEventListener("submit", (e) => {
 
 /*
 ============== GROUP 2 LOGIC ==========
+<<<<<<< HEAD
 */
+=======
+
+*/
+const updateButton = document.querySelectorAll(".updateButton");
+
+updateButton.forEach(updateButton => {
+    const value=updateButton.getAttribute("value");
+    updateButton.addEventListener("click",()=>{ 
+    updateFilm(value);
+})
+});
+
+
+>>>>>>> c78400ec56ae641821cd0a5faee15f47cd32d52d
 
 /*
 ============== GROUP 3 LOGIC ==========
