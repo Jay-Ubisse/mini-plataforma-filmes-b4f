@@ -1,11 +1,22 @@
-// Arquivo principal que inicializa a aplicação import { listfilms } from "../scripts/get-films.js"
-
+// Arquivo principal que inicializa a aplicação
 
 /*
 
 ============== GROUP 1 LOGIC ==========
 
 */
+//add new film button
+/*document.addEventListener(`DOMContentLoaded`, () => {
+  newFilm();
+});*/
+
+addBtn();
+document.getElementById("addFilmForm").addEventListener("submit", (e) => {
+  e.preventDefault();
+  //isFieldValidated(); Verificar isso
+  const response = createFilm();
+  alert(response.message);
+});
 
 /*
 
