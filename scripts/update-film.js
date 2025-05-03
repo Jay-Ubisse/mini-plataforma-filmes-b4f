@@ -8,7 +8,7 @@ export function updateFilm(idButton) {
   const form = document.createElement("form");
   form.style.maxWidth = "500px";
   form.style.minWidth = "300px"
-  form.style.Width = "90%";
+  form.style.width = "90%";
   form.style.backgroundColor = "#001238";
   form.style.color= "#cfd6fa";
   form.style.display = "flex";
@@ -21,6 +21,7 @@ export function updateFilm(idButton) {
   form.style.position = "fixed";
   form.style.left = "40%";
   form.style.zIndex = "999";
+  
   form.innerHTML = `
         <span id= "closeButton">&times;</span>
         <label for="title">Título</label>
@@ -36,6 +37,7 @@ export function updateFilm(idButton) {
         <label for="imageUrl">Url da Imagem</label>
         <input type="url"  id="imageUrlInput" name = "imageUrl" required><br>
         <button  id="saveButton" >Salvar</button> `;
+
   //styling the close button
   const closeButton = form.querySelector("#closeButton");
   closeButton.style.position = "absolute";
@@ -43,6 +45,7 @@ export function updateFilm(idButton) {
   closeButton.style.right = "25px";
   closeButton.style.fontSize = "24px";
   closeButton.style.cursor = "pointer";
+  
   closeButton.addEventListener("mouseover",()=>{
     closeButton.style.fontSize = "36";
     closeButton.style.color = "red";
@@ -51,6 +54,7 @@ export function updateFilm(idButton) {
     closeButton.style.fontSize = "24";
     closeButton.style.color = "#cfd6fa";
   })
+  
   //show the form
   document.body.appendChild(form);
   preFillForm(value)
@@ -100,6 +104,7 @@ document.getElementById("imageUrlInput").value = editFilm.imageUrl;
 
 }}
 
+ //save the update film
 function saveUpdateFilm() {
      const films = JSON.parse(db);
      const film = films.find((film) => film.id === Number(value));  
@@ -115,6 +120,3 @@ function saveUpdateFilm() {
       localStorage.setItem("films", JSON.stringify(films));
       alert("Filme salvo com sucesso!");
   }}
-  
-    
-

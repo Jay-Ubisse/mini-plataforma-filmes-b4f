@@ -16,9 +16,10 @@ import {updateFilm} from "./update-film.js";
 const updateButton = document.querySelectorAll(".updateButton");
 
 updateButton.forEach(updateButton => {
-    const value=updateButton.getAttribute("value");
-    updateButton.addEventListener("click",()=>{ 
-    updateFilm(value);
+    
+    updateButton.addEventListener("click",()=>{
+        const value=updateButton.getAttribute("value"); 
+        updateFilm(Number(value));
 })
 });
 
