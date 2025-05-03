@@ -1,8 +1,11 @@
+
 // Arquivo principal que inicializa a aplicação
 import { updateFilm } from "./update-film.js";
 import { addBtn } from "./create-film.js";
 import { isFieldValidated } from "./create-film.js";
 import { createFilm } from "./create-film.js";
+// Arquivo principal que inicializa a aplicação import { listfilms } from "../scripts/get-films.js"
+
 
 /*
 
@@ -28,9 +31,9 @@ document.getElementById("addFilmForm").addEventListener("submit", (e) => {
 ============== GROUP 2 LOGIC ==========
 <<<<<<< HEAD
 */
-=======
 
-*/
+
+
 const updateButton = document.querySelectorAll(".updateButton");
 
 updateButton.forEach(updateButton => {
@@ -41,17 +44,26 @@ updateButton.forEach(updateButton => {
 });
 
 
->>>>>>> c78400ec56ae641821cd0a5faee15f47cd32d52d
 
 /*
 ============== GROUP 3 LOGIC ==========
 */
+
 
 import { films } from "../data/db.js";
 import { listfilms } from "./get-films.js";
 listfilms(films)
 
 
+
+import { deleteFilm} from "../scripts/delete-film.js";
+import { removeElement } from "../scripts/delete-film.js";
+const deletebtn=document.getElementById("deleteButton");
+const value=deletebtn.getAttribute("value");
+deletebtn.addEventListener("click", ()=>{
+deleteFilm();
+removeElement(value);
+});
 
 
 /*
