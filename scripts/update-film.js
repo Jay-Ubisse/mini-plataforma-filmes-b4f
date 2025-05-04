@@ -77,10 +77,19 @@ export function updateFilm(idButton) {
   })
 
   saveButton.addEventListener("click", () => {
-    //saveUpdateFilm();
-    alert("Filme salvo com sucesso");
-    document.body.removeChild(form);
+
+    const validate = InputsValidation(form);
+
+    if (validate.valid){
+      saveUpdateFilm(value);
+      alert("Filme salvo com sucesso");
+      document.body.removeChild(form);
+    }
+    else { 
+      alert (validate.errors);
+    } 
   });
+  
   saveButton.addEventListener("click", () => {
     modal.style.display = "none";
   })
@@ -113,6 +122,79 @@ function preFillForm(value) {
     document.getElementById("imageUrlInput").value = editFilm.imageUrl;
 
   }
+}
+
+function InputsValidation(form) {
+    
+  const titleInput = form.querySelector("#titleInput");
+  const genderInput = form.querySelector("#genderInput");
+  const yearInput = form.querySelector("#yearInput");
+  const rateInput = form.querySelector("#rateInput");
+  const descriptionInput = form.querySelector("#descriptionInput");
+  const imageUrlInput = form.querySelector("#imageUrlInput");
+
+  let errors = [];
+  let valid = true;
+
+  // Title Validation
+  if (titleInput.value.trim() === " ") {
+      titleInput.style.borderColor = "red";
+      errors.push("O título é obrigatório");
+      valid = false;
+  } else {
+      titleInput.style.borderColor = "green";
+  }
+
+  // Gender Validation
+  if (genderInput.value.trim() === "") {
+      genderInput.style.borderColor = "red";
+      errors.push("O gênero é obrigatório");
+      valid = false;
+  } else {
+      genderInput.style.borderColor = "green";
+  }
+
+  // Year Validation
+  const anoAtual = new Date().getFullYear();
+  if (yearInput.value < 1888 || yearInput.value > anoAtual ) { 
+      yearInput.style.borderColor = "red";
+      errors.push(`O ano deve estar entre 1888 e ${anoAtual }`);
+      valid = false;
+  } else {
+      yearInput.style.borderColor = "green";
+  }
+
+  // Rate validation 
+  if (rateInput.value < 0 || rateInput.value > 5) {
+      rateInput.style.borderColor = "red";
+      errors.push("A avaliação deve estar entre 0 e 5");
+      valid = false;
+  } else {    
+      rateInput.style.borderColor = "green";
+  }
+
+  // URL validation
+  if (!imageUrlInput.value.startsWith("http://") && !imageUrlInput.value.startsWith("https://")) {
+      imageUrlInput.style.borderColor = "red";
+      errors.push("A url da imagem deve começar com http:// ou https://");
+      valid = false;
+  } else {
+      imageUrlInput.style.borderColor = "green";
+  }
+
+  // Description validation 
+  if (descriptionInput.value.length > 500) {
+      descriptionInput.style.borderColor = "red";
+      errors.push("A descrição não pode ter mais de 500 caracteres");
+      valid = false;
+  } else {
+      descriptionInput.style.borderColor = "green";
+  }
+
+  return {
+      valid: valid,
+      errors: errors
+  };
 }
 
 //save the update film

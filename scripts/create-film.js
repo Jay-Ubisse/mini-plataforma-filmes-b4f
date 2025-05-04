@@ -24,6 +24,7 @@ export function addBtn() {
   return;
 }
 
+/*
 export function isFieldValidated() {
   document.addEventListener("click", () => {
     const form = document.getElementById("addFilmForm");
@@ -110,7 +111,7 @@ export function isFieldValidated() {
       descriptionInput.style.border = "2px solid blue";
     }
   }
-}
+}*/
 
 export function createFilm() {
   const titleInput = document.getElementById("title");
