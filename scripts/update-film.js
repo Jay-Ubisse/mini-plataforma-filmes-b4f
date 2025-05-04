@@ -84,7 +84,6 @@ export function updateFilm(idButton) {
 
     if (validate.valid){
       saveUpdateFilm(value);
-      alert("Filme salvo com sucesso");
       document.body.removeChild(form);
     }
     else { 
@@ -100,13 +99,6 @@ export function updateFilm(idButton) {
     document.body.removeChild(form);
   });
 
-  /*cancel and close the form
-  const cancelButton = document.createElement("button");
-  cancelButton.textContent = "Cancelar";
-  cancelButton.addEventListener("click", () => {
-    document.body.removeChild(form);
-  });
-  form.appendChild(cancelButton);*/
 }
 
 //fill the form
@@ -125,9 +117,8 @@ function preFillForm(value) {
 }
 
 
-
   //  Validate the form
-function InputsValidation(form) {
+function InputsValidation() {
     
   const titleInput = document.getElementById("titleInput");
   const genderInput = document.getElementById("genderInput");
@@ -157,10 +148,10 @@ function InputsValidation(form) {
   }
 
   // Year Validation
-  const anoAtual = new Date().getFullYear();
-  if (yearInput.value < 1888 || yearInput.value > anoAtual ) { 
+  const Actualyear = new Date().getFullYear();
+  if (yearInput.value < 1888 || yearInput.value > Actualyear ) { 
       yearInput.style.borderColor = "red";
-      alert(`O ano deve estar entre 1888 e ${anoAtual }`);
+      alert(`O ano deve estar entre 1888 e ${Actualyear}`);
       valid = false;
   } else {
       yearInput.style.borderColor = "green";
@@ -199,8 +190,9 @@ function InputsValidation(form) {
   };
 }
 
+
 //save the update film
-function saveUpdateFilm() {
+function saveUpdateFilm(value) {
   const films = JSON.parse(db);
   const film = films.find((film) => film.id === Number(value));
 
