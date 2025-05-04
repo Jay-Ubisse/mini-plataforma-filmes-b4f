@@ -9,7 +9,7 @@ import {
 
 export function updateFilm(idButton) {
   const value = idButton;
-
+  const modal = document.getElementById("modal")
   const form = document.createElement("form");
   form.id = "form"
   form.style.maxWidth = "500px";
@@ -67,6 +67,8 @@ export function updateFilm(idButton) {
 
   //save the form
   const saveButton = form.querySelector("#saveButton");
+  saveButton.style.width = "fit-content";
+  saveButton.style.padding = "6px 12px";
   saveButton.style.cursor = "pointer";
   saveButton.addEventListener("mouseover", () => {
     saveButton.style.backgroundColor = '#669bbc'
@@ -88,9 +90,7 @@ export function updateFilm(idButton) {
     else { 
       alert (validate.errors);
     } 
-  });
-  
-  saveButton.addEventListener("click", () => {
+
     modal.style.display = "none";
   })
 
@@ -137,7 +137,7 @@ function InputsValidation(form) {
   let valid = true;
 
   // Title Validation
-  if (titleInput.value.trim() === " ") {
+  if (titleInput.value.trim() === "") {
       titleInput.style.borderColor = "red";
       errors.push("O título é obrigatório");
       valid = false;
@@ -165,7 +165,7 @@ function InputsValidation(form) {
   }
 
   // Rate validation 
-  if (rateInput.value < 0 || rateInput.value > 5) {
+  if (rateInput.value < 0 || rateInput.value > 5|| rateInput.value.trim() === "") {
       rateInput.style.borderColor = "red";
       errors.push("A avaliação deve estar entre 0 e 5");
       valid = false;
@@ -183,7 +183,7 @@ function InputsValidation(form) {
   }
 
   // Description validation 
-  if (descriptionInput.value.length > 500) {
+  if (descriptionInput.value.length > 500||descriptionInput.value.trim() === "") {
       descriptionInput.style.borderColor = "red";
       errors.push("A descrição não pode ter mais de 500 caracteres");
       valid = false;
@@ -217,30 +217,6 @@ function saveUpdateFilm() {
 
 
 // create modal
-const button = document.getElementById("modalButton");
-button.addEventListener("click", () => {
-  modal.style.display = "block";
-});
-const modal = document.createElement('div')
-modal.style.display = "none";
-modal.style.position = "fixed";
-modal.style.zIndex = "1";
-modal.style.left = "0";
-modal.style.top = "0";
-modal.style.width = "100%";
-modal.style.height = "100%";
-modal.style.overflow = "auto";
-modal.style.backgroundColor = "black";
-modal.style.opacity = "50%";
 
 
-modal.addEventListener("click", (event) => {
-  if (event.target == modal) {
-    modal.style.display = "none";
-    document.getElementById("form")
-    document.body.removeChild(form)
-  }
-})
 
-
-document.body.appendChild(modal)
