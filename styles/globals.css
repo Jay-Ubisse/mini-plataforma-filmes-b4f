@@ -1,5 +1,5 @@
 :root {
-    /*Tipografia*/
+  /*Tipografia*/
   --font: 4em;
   --title: 4em;
   --subtitle: 1.9em;
@@ -91,6 +91,7 @@ body {
   cursor: pointer;
 
 }
+
 #register:hover{
   background-color: #52b788;
   font-weight: bolder;
