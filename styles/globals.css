@@ -336,6 +336,15 @@ select {
   color: var(--colorText);
 }
 
+#details {
+  background-color: rgb(43, 151, 43);
+  padding: 5px 10px 5px 10px;
+  border: 2px solid green;
+  cursor: pointer;
+  border-radius: 5px;
+  color: white;
+}
+
 .close {
   margin: 5px;
   margin-left: 80%;
@@ -348,6 +357,17 @@ select {
 
 .close:hover {
   background-color: rgb(252, 77, 77);
+  border: 1px solid rgb(211, 211, 211);
+  border-radius: 5px;
+  color: white;
+}
+
+#DetailsButton {
+  background-color: rgb(53, 175, 89);
+}
+
+.close:hover{
+  background-color: rgb(226, 57, 57);
 }
 
 footer {

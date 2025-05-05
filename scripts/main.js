@@ -7,8 +7,11 @@ import { showDetails } from "./film-details.js";
 import { films } from "../data/db.js";
 // Arquivo principal que inicializa a aplicação
 
-// Aguarda o DOM carregar completamente
-// ========== GRUPO 1: Lógica de criação ==========
+
+import { getFilm } from "./film-details.js";
+
+
+
 
 document.addEventListener("DOMContentLoaded", () => {
 addBtn()});
@@ -67,7 +70,23 @@ if (deleteBtn) {
 
 // ========== GRUPO 5: Detalhes ==========
 
-const viewDetails = document.getElementById("details");
-if (viewDetails) {
-  viewDetails.addEventListener("click", () => showDetails(value));
-};
+
+
+const detailsButton = document.getElementById("details");
+const value=detailsButton.getAttribute('value')
+const closeButton = document.getElementsByClassName("close")[0];
+const detailsDiv = document.getElementById("content");
+
+
+
+detailsButton.addEventListener("click", () => {
+  detailsDiv.style.display = "block";
+  getFilm(value)
+
+});
+
+closeButton.addEventListener("click", () => {
+  detailsDiv.style.display = "none";
+  
+
+});
