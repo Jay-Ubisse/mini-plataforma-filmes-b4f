@@ -5,6 +5,7 @@ import { addBtn, isFieldValidated, createFilm } from "./create-film.js";
 import { deleteFilm, removeElement } from "../scripts/delete-film.js";
 import { showDetails } from "./film-details.js";
 import { films } from "../data/db.js";
+// Arquivo principal que inicializa a aplicação
 
 // Aguarda o DOM carregar completamente
 // ========== GRUPO 1: Lógica de criação ==========
@@ -20,6 +21,15 @@ if (form) {
     createFilm();
   })
 };
+
+addBtn();
+document.getElementById("addFilmForm").addEventListener("submit", (e) => {
+  e.preventDefault();
+  //isFieldValidated(); Verificar isso
+  const response = createFilm();
+  alert(response.message);
+});
+
 
 // ========== GRUPO 2: Atualização ==========
 document.querySelectorAll(".updateButton").forEach((btn) => {
