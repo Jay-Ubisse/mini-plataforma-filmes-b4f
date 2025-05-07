@@ -7,8 +7,10 @@
     <link rel="stylesheet" href="styles/globals.css" />
     <script defer type="module" src="scripts/main.js"></script>
   </head>
+
   <body>
     <header>
+
       <h2><span id="header">B4F</span>LIX</h2>
     </header>
 
@@ -19,12 +21,34 @@
     <!--Botao para abrir pop up para adicionar novo filme-->
     <button class="addNewFilm" id="addNewFilmBtn">Adicionar Novo Filme</button>
 
+
+      <h2><span>B4F</span>LIX</h2>
+      <button id="modalButton" class="updateButton" value="0">editar</button>
+      <button class="updateButton" value="1">editar</button>
+      <button class="updateButton" value="3">editar</button>
+    </header>
+
+    <!--Botao para abrir pop up para adicionar novo filme-->
+
+    <button class="addNewFilm" id="addNewFilmBtn">Adicionar Novo Filme</button>
     <br /><br />
     <!--    <button id="modalButton" class="updateButton" value="0">editar</button>
     <button class="updateButton" value="1">editar</button>
     <button class="updateButton" value="3">editar</button>-->
 
     <div id="modal">
+
+      <div class="modal-content">
+        <p>Tem certeza que deseja eliminar este filme?</p>
+        <button id="nobutton">Não</button>
+        <button id="yesbutton">Sim</button>
+      </div>
+    </div>
+    <div id="container"></div>
+
+    <div id="app"></div>
+    <section class="addNewFilm" id="addNewFilmModal">
+
       <div class="modalContent">
         <!--Botao para fechar pop up-->
         <span class="closeModal" id="closeModalBtn"> &times;</span>
