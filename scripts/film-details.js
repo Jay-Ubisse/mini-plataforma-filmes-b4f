@@ -3,7 +3,7 @@ import { films } from "../data/db.js";
 const detailsDiv = document.getElementById("content");
 
 let title = document.getElementById("title");
-let image = document.getElementById("image");
+let picture = document.getElementById("picture");
 let gender = document.getElementById("gender");
 let year = document.getElementById("year");
 let rate = document.getElementById("rate");
@@ -16,7 +16,7 @@ export function getFilm(value) {
   if (!film)  return detailsDiv.appendChild(message);
 
  return ` ${title.innerHTML=film.title}
-          ${image.src=("src",film.imageUrl)} 
+          ${picture.src=("src",film.imageUrl)} 
           ${gender.innerHTML=film.gender} 
           ${year.innerHTML=film.year} 
           ${rate.innerHTML=film.rate}+
@@ -26,6 +26,3 @@ export function getFilm(value) {
 
 }
 
-detailsButton.addEventListener("click", () => {
-  const filmId = parseInt(detailsButton.getAttribute("data-id"));
-})

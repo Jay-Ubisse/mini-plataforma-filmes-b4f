@@ -1,17 +1,15 @@
 // Importações de módulos
 import { listfilms } from "./get-films.js";
 import { updateFilm } from "./update-film.js";
-import { addBtn, isFieldValidated, createFilm } from "./create-film.js";
+import { addBtn, createFilm } from "./create-film.js";
 import { deleteFilm, removeElement } from "../scripts/delete-film.js";
-import { showDetails } from "./film-details.js";
+import { getFilm } from "./film-details.js";
 import { films } from "../data/db.js";
 // Arquivo principal que inicializa a aplicação
 
 
-import { getFilm } from "./film-details.js";
 
-
-
+//============== GROUP 1 LOGIC ==========//
 
 document.addEventListener("DOMContentLoaded", () => {
 addBtn()});
@@ -55,25 +53,23 @@ updateButton.forEach(updateButton => {
 
 // ========== GRUPO 3: Listagem ==========
 
-listfilms();
+listfilms(films);
 
 // ========== GRUPO 4: Deleção ==========
 
-const deleteBtn = document.getElementById("deleteButton");
-if (deleteBtn) {
-  const value = deleteBtn.getAttribute("value");
-  deleteBtn.addEventListener("click", () => {
-    deleteFilm();
-    removeElement(value);
-  });
-}
 
+const deletebtn=document.getElementById("deleteButton");
+const value=deletebtn.getAttribute("value");
+deletebtn.addEventListener("click", ()=>{
+deleteFilm();
+removeElement(value);
+});
 // ========== GRUPO 5: Detalhes ==========
 
 
 
 const detailsButton = document.getElementById("details");
-const value=detailsButton.getAttribute('value')
+//const value=detailsButton.getAttribute('value')
 const closeButton = document.getElementsByClassName("close")[0];
 const detailsDiv = document.getElementById("content");
 

@@ -1,7 +1,4 @@
 // Função para cadastrar novo filme
-
-import { db } from "./utils.js";
-
 import { db } from "./utils.js";
 
 

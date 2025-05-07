@@ -2,8 +2,7 @@
 
 import {films} from "../data/db.js";
 import { deleteFilm } from "./delete-film.js";
-import { showDetails } from "./film-details.js";
-import { updateFilm } from "./update-film.js";
+import { getFilm } from "./film-details.js";
 
 
 
@@ -34,14 +33,14 @@ function listFilms(films) {
     detailsBtn.className = "btn";
     detailsBtn.textContent = "Details";
     detailsBtn.addEventListener("click", () => {
-      showDetails()
+      getFilm()
     });
 
     const editBtn = document.createElement("button");
     editBtn.className = "btn1";
     editBtn.textContent = "Edit";
     editBtn.addEventListener("click", () => {
-      updateFilm()
+      getFilm()
     });
 
     const deleteBtn = document.createElement("button");

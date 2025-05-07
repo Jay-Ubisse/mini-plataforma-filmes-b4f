@@ -58,7 +58,7 @@ export function updateFilm(idButton) {
 
   //styling the close button
   const closeButton = form.querySelector("#closeButton");
-  closeButton.style.position = "absolute";
+  closeButton.style.position = "relative";
   closeButton.style.top = "10px";
   closeButton.style.right = "25px";
   closeButton.style.fontSize = "24px";
