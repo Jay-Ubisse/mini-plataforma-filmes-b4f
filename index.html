@@ -6,17 +6,95 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles/globals.css" />
     <script defer type="module" src="scripts/main.js"></script>
-
-    <style></style>
   </head>
+
   <body>
-    <h1>🎬 Mini Plataforma de Filmes</h1>
+    <header>
+
+      <h2><span id="header">B4F</span>LIX</h2>
+    </header>
+
+    <h1>
+      🎬 <span class="title1">Mini Platafo</span
+      ><span class="title">rma de Filmes</span>
+    </h1>
+    <!--Botao para abrir pop up para adicionar novo filme-->
+    <button class="addNewFilm" id="addNewFilmBtn">Adicionar Novo Filme</button>
+
+
+      <h2><span>B4F</span>LIX</h2>
+      <button id="modalButton" class="updateButton" value="0">editar</button>
+      <button class="updateButton" value="1">editar</button>
+      <button class="updateButton" value="3">editar</button>
+    </header>
+
+    <!--Botao para abrir pop up para adicionar novo filme-->
+
+    <button class="addNewFilm" id="addNewFilmBtn">Adicionar Novo Filme</button>
+    <br /><br />
+    <!--    <button id="modalButton" class="updateButton" value="0">editar</button>
+    <button class="updateButton" value="1">editar</button>
+    <button class="updateButton" value="3">editar</button>-->
+
+    <div id="modal">
+
+      <div class="modal-content">
+        <p>Tem certeza que deseja eliminar este filme?</p>
+        <button id="nobutton">Não</button>
+        <button id="yesbutton">Sim</button>
+      </div>
+    </div>
+    <div id="container"></div>
+
+    <div id="app"></div>
+    <section class="addNewFilm" id="addNewFilmModal">
+
+      <div class="modalContent">
+        <!--Botao para fechar pop up-->
+        <span class="closeModal" id="closeModalBtn"> &times;</span>
+
+        <form action="" method="post" id="addFilmForm">
+          <label for="title">Titulo:</label>
+          <input type="text" id="title" name="title" />
+          <span class="span-required">Nome deve ter no mínimo 3 caracteres</span
+          ><br />
+
 
     <button id="details" value="2">Details</button>
 
+
+          <label for="gender">Género:</label>
+          <input type="text" id="gender" name="gender" />
+          <span class="span-required">O género é obrigatório</span><br />
+
+          <label for="rate">Classificação(1-5):</label>
+          <input type="number" id="rate" name="rate" max="5" min="1" />
+          <span class="span-required">A nota deve ser entre 1 e 5</span><br />
+
+          <label for="year">Ano de Lançamento:</label>
+          <input type="number" name="year" id="year" />
+          <span class="span-required"
+            >O ano é obrigatório e deve ser válido</span
+          ><br />
+
+          <label for="image">URL:</label>
+          <input type="text" id="image" name="image" />
+          <span class="span-required">A URL da imagem é obrigatória</span><br />
+
+          <label for="description">Descrição:</label>
+          <textarea id="description" name="description"></textarea>
+          <span class="span-required">A descrição não pode estar vazia</span
+          ><br />
+
+          <button type="submit" id="register">Cadastrar</button>
+        </form>
+      </div>
+    </div>
+
+
     <div id="content">
       <button class="close">X</button>
-      <img id="image" alt="" />
+      <img id="picture" alt="" />
 
       <h4 id="title"></h4>
       <h4 id="gender"></h4>
@@ -24,5 +102,54 @@
       <h4 id="rate"></h4>
       <h4 id="description"></h4>
     </div>
+    <br /><br />
+    <div id="container"></div>
+
+    <!--<button class="updateButton" value="0" >editar</button>
+    <button class="updateButton" value="1" >editar</button>
+    <button class="updateButton" value="3" >editar</button>
+    -->
+    <div id="app"></div>
+    <section class="addNewFilm" id="addNewFilmModal">
+      <div class="modalContent">
+        <!--Botao para fechar pop up-->
+        <span class="closeModal" id="closeModalBtn"> &times;</span>
+        <form action="" method="post" id="addFilmForm">
+          <label for="title">Titulo:</label>
+          <input type="text" id="title" name="title" required />
+          <span class="span-required">Nome deve ter no mínimo 3 caracteres</span
+          ><br />
+
+          <label for="gender">Género:</label>
+          <input type="text" id="gender" name="gender" required />
+          <span class="span-required">O género é obrigatório</span><br />
+
+          <label for="rate">Classificação(1-5):</label>
+          <input type="number" id="rate" name="rate" max="5" min="1" required />
+          <span class="span-required">A nota deve ser entre 1 e 5</span><br />
+
+          <label for="year">Ano de Lançamento:</label>
+          <input type="number" name="year" id="year" required />
+          <span class="span-required"
+            >O ano é obrigatório e deve ser válido</span
+          ><br />
+
+          <label for="image">URL:</label>
+          <input type="text" id="image" name="image" required />
+          <span class="span-required">A URL da imagem é obrigatória</span><br />
+
+          <label for="description">Descrição:</label>
+          <textarea id="description" name="description" required></textarea>
+          <span class="span-required">A descrição não pode estar vazia</span
+          ><br />
+
+          <button type="submit" id="register">Cadastrar</button>
+        </form>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy;2025 Feito com amor e carinho pelos alunos do B4F</p>
+    </footer>
   </body>
 </html>
