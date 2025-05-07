@@ -38,7 +38,6 @@ export function isFieldValidated() {
       .addEventListener("input", validateDescription);
   });
 
-
   /*function validateTitle() {
     const titleInput = document.getElementById("title");
     const errorSpan = document.getElementsByClassName("span-required")[0];
@@ -136,6 +135,11 @@ export function createFilm() {
   actualDb.push(data);
 
   localStorage.setItem("films", JSON.stringify(actualDb));
+  console.log({
+    status: 201,
+    message: "Filme cadastrado com sucesso!",
+    body: actualDb,
+  });
 
   return {
     status: 201,
@@ -143,8 +147,9 @@ export function createFilm() {
     body: actualDb,
   };
 }
-const button=document.getElementById("register")
-const titleInput=document.getElementById("title")
+
+const button = document.getElementById("register");
+const titleInput = document.getElementById("title");
 const errorSpan = document.getElementsByClassName("span-required")[0];
 const genderInput = document.getElementById("gender");
 const errorSpan1 = document.getElementsByClassName("span-required")[1];
@@ -156,47 +161,47 @@ const imageInput = document.getElementById("image");
 const errorSpan4 = document.getElementsByClassName("span-required")[4];
 const descriptionInput = document.getElementById("description");
 const errorSpan5 = document.getElementsByClassName("span-required")[5];
-button.addEventListener("click",()=>{
-if (titleInput.value.trim().length < 3) {
-      errorSpan.style.display = "block";
-      titleInput.style.border = "2px solid red";
-    } else {
-      errorSpan.style.display = "none";
-      titleInput.style.border = "2px solid blue";
-    }
-    if (genderInput.value.trim() === "") {
-      errorSpan1.style.display = "block";
-      genderInput.style.border = "2px solid red";
-    } else {
-      errorSpan1.style.display = "none";
-      genderInput.style.border = "2px solid blue";
-    }
-    if (rateInput.value < 1 || rateInput.value > 5) {
-      errorSpan2.style.display = "block";
-      rateInput.style.border = "2px solid red";
-    } else {
-      errorSpan2.style.display = "none";
-      rateInput.style.border = "2px solid blue";
-    }
-    if (yearInput.value.trim() === "" || isNaN(yearInput.value)) {
-      errorSpan3.style.display = "block";
-      yearInput.style.border = "2px solid red";
-    } else {
-      errorSpan3.style.display = "none";
-      yearInput.style.border = "2px solid blue";
-    }
-    if (imageInput.value.trim() === "") {
-      errorSpan4.style.display = "block";
-      imageInput.style.border = "2px solid red";
-    } else {
-      errorSpan4.style.display = "none";
-      imageInput.style.border = "2px solid blue";
-    } 
-    if (descriptionInput.value.trim() === "") {
-      errorSpan5.style.display = "block";
-      descriptionInput.style.border = "2px solid red";
-    } else {
-      errorSpan5.style.display = "none";
-      descriptionInput.style.border = "2px solid blue";
-    }
-})
+button.addEventListener("click", () => {
+  if (titleInput.value.trim().length < 3) {
+    errorSpan.style.display = "block";
+    titleInput.style.border = "2px solid red";
+  } else {
+    errorSpan.style.display = "none";
+    titleInput.style.border = "2px solid blue";
+  }
+  if (genderInput.value.trim() === "") {
+    errorSpan1.style.display = "block";
+    genderInput.style.border = "2px solid red";
+  } else {
+    errorSpan1.style.display = "none";
+    genderInput.style.border = "2px solid blue";
+  }
+  if (rateInput.value < 1 || rateInput.value > 5) {
+    errorSpan2.style.display = "block";
+    rateInput.style.border = "2px solid red";
+  } else {
+    errorSpan2.style.display = "none";
+    rateInput.style.border = "2px solid blue";
+  }
+  if (yearInput.value.trim() === "" || isNaN(yearInput.value)) {
+    errorSpan3.style.display = "block";
+    yearInput.style.border = "2px solid red";
+  } else {
+    errorSpan3.style.display = "none";
+    yearInput.style.border = "2px solid blue";
+  }
+  if (imageInput.value.trim() === "") {
+    errorSpan4.style.display = "block";
+    imageInput.style.border = "2px solid red";
+  } else {
+    errorSpan4.style.display = "none";
+    imageInput.style.border = "2px solid blue";
+  }
+  if (descriptionInput.value.trim() === "") {
+    errorSpan5.style.display = "block";
+    descriptionInput.style.border = "2px solid red";
+  } else {
+    errorSpan5.style.display = "none";
+    descriptionInput.style.border = "2px solid blue";
+  }
+});
