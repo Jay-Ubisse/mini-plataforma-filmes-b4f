@@ -1,6 +1,6 @@
 export const films = [
   {
-    id: 1,
+    id: 0,
     title: "O Grande Truque",
     gender: "Drama",
     year: 2006,
@@ -10,7 +10,7 @@ export const films = [
   },
 
   {
-    id: 2,
+    id: 1,
     title: "Interestelar",
     gender: "Ficção científica",
     year: 2014,
@@ -18,6 +18,7 @@ export const films = [
     description: "Uma jornada através do espaço e do tempo.",
     imageUrl: "https://www.themoviedb.org/t/p/original/djS3XxneEFjCM6VlCiuuN8QavE6.jpg",
   },
+
   {
     id: 3,
     title: "Crepusculo",
@@ -25,9 +26,10 @@ export const films = [
     year: 2014,
     rate: 5,
     description: "Uma jovem que se apaixona por um vampiro.",
-    imageUrl: "https://th.bing.com/th/id/R.805c1f0d204e1ebaad827bf5fa6a7084?rik=zUmbbk%2Bwr14tfw&pid=ImgRaw&r=0",
+    imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRv4jxLyIYQZ42Fq-6T4I_j-qzQDZDlRa44Sg&s",
   
   },
+
   {
     id: 4,
     title: "The Beekeeper",
@@ -37,6 +39,7 @@ export const films = [
     description: "Filme de accao e suspense, de um homem aparentemente comum que esconde um segredo .",
     imageUrl: "https://image.tmdb.org/t/p/original/1vWI4E9Qf135X2cr2AJOZ0CcWS7.jpg",
   },
+
   {
     id: 5, 
     title: "Red Notice",
@@ -46,6 +49,7 @@ export const films = [
     description: "Filme  que conta a historia de 2 criminosos maia procurados pela interpol.",
     imageUrl: "https://thaka.bing.com/th/id/OIP.ZdTgN4yTIMmeenMglMwwTAHaEK?w=309&h=180&c=7&r=0&o=5&pid=1.7",
   },
+
   {
     id: 6,
     title: "Casamento sangrento",
@@ -54,15 +58,11 @@ export const films = [
     rate: 5,
     description: "Assassinato em um casamento",
     imageUrl: "https://thaka.bing.com/th/id/OIP.mm1HRcdRuGDeAu_dip_A4gHaEK?w=332&h=187&c=7&r=0&o=5&pid=1.7",
-
-    gender: "Documentário",
-    year: 2014,
-    rate: 5,
-    description: "A mudança que decoreu na vida de um jovem, de programador para gestor.",
-    imageUrl: "https://blogs.uai.com.br/opipoqueiro/wp-content/uploads/sites/54/2021/11/Alerta-Vermelho-01.jpg",
+    
   },
+  /*
   {
-    id: 6,
+    id: 7,
     title: "The Beekeeper",
     gender: "Development",
     year: 2025,
@@ -70,6 +70,6 @@ export const films = [
     description: "On the journey to kill Dev's who use chat GPT",
     imageUrl: "https://image.tmdb.org/t/p/original/1vWI4E9Qf135X2cr2AJOZ0CcWS7.jpg",
 
-  },
+  }*/
 
 ];
