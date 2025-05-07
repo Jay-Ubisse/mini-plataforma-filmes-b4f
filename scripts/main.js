@@ -3,11 +3,10 @@ import { updateFilm } from "./update-film.js";
 
 import { showDetails } from "./film-details";
 import { addBtn } from "./create-film.js";
-import { isFieldValidated } from "./create-film.js";
+//import { isFieldValidated } from "./create-film.js";
 import { createFilm } from "./create-film.js";
 import { films } from "../data/db.js";
 import { listfilms } from "./get-films.js";
-
 
 /*
 
@@ -28,16 +27,13 @@ document.getElementById("addFilmForm").addEventListener("submit", (e) => {
   alert(response.message);
 });
 
-
-
 /*
 ============== GROUP 2 LOGIC ==========
 */
 
-
-edit_button.addEventListener("click",()=>{ 
-    updateFilm();
-})*/
+edit_button.addEventListener("click", () => {
+  updateFilm();
+});
 
 const modal = document.createElement("div");
 modal.id = "modal";
@@ -63,23 +59,16 @@ updateButton.forEach((updateButton) => {
   });
 });
 
-
 /*
 ============== GROUP 3 LOGIC ==========
 */
 
-
-listfilms(films)
-
-
-
+listfilms(films);
 
 /*
 ============== GROUP 4 LOGIC ==========
 
 */
 
-
-let viewDetails = document.getElementById("details")
-viewDetails.onclick = showDetails()
-
+let viewDetails = document.getElementById("details");
+viewDetails.onclick = showDetails();
