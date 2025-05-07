@@ -1,12 +1,12 @@
 // Função para editar filme existente
-import { films } from "../data/db.js";
 
 function setAndUpdate(id) {
   localStorage.setItem("id", id);
   updateFilm();
 }
+
 //create form and styling
-export function updateFilm() {
+export function updateFilm(id) {
   const form = document.createElement("form");
   form.style.maxHeight = "fit-content";
   form.style.maxWidth = "50%";
@@ -21,6 +21,7 @@ export function updateFilm() {
   form.style.position = "fixed";
   form.style.left = "50%";
   form.style.zIndex = "1000";
+
   form.innerHTML = `
  <span id= "close_button">&times;</span>
     <label for="title">Título</label>
@@ -42,6 +43,7 @@ export function updateFilm() {
  <input type="url"  id="imageUrl" name = "imageUrl" required><br>
  <button  id="button" >Salvar</button>
  `;
+
   //styling the close button
   const closeButton = form.querySelector("#close_button");
   closeButton.style.position = "absolute";
@@ -50,11 +52,11 @@ export function updateFilm() {
   closeButton.style.fontSize = "24px";
   closeButton.style.cursor = "pointer";
   closeButton.style.color = "red";
+
   //show the form
   document.body.appendChild(form);
 
-  const id = Number(localStorage.getItem("id"));
-  const film = films.find((film) => film.id === id);
+  const film = films.find((film) => film.id === Number(1));
 
   if (!film) {
     alert("Filme não encontrado com o ID: " + id);
@@ -94,6 +96,7 @@ function preFillForm(films) {
   document.getElementById("description").value = films.description;
   document.getElementById("imageUrl").value = films.imageUrl;
 }
+
 function isValidateForm() {
   let valido = true;
   const titleInput = document.getElementById("title");
