@@ -6,13 +6,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles/globals.css" />
     <script defer type="module" src="scripts/main.js"></script>
+    <script defer src="scripts/film-details.js"></script>
   </head>
   <body>
-    <h1>🎬 Mini Plataforma de Filmes</h1>
-    <!--Botao para abrir pop up para adicionar novo filme-->
-    <button class="addNewFilm" id="addNewFilmBtn">
+    <header>
+      <h2><span>B4F</span>LIX</h2>
+    </header>
+
+    <h1>🎬 <span>Mini Platafor</span> <span id="maintitle">ma de Filmes</span></h1>
+     <!--Botao para abrir pop up para adicionar novo filme-->
+
+     <button class="addNewFilm" id="addNewFilmBtn">
       Adicionar Novo Filme
     </button>
+
+
+    <section>
+      <img src="https://github.com/jay-ubisse.png" alt="jay" id="j" />
+      <h2>THE CORONEL HUNTER</h2>
+      <p>On The Journey To Kill Dev's Who Use Chat GPT</p>
+      <p>2025</p>
+      <button id="details" class="btn">Details</button>
+      <button  class="btn1" >Edit</button>
+      <button id="delete" class="btn2">Delete</button>
+    </section>
+    <br /><br />
+
+    <div id="modal">
+      <div class="modal-content">
+        <p>Tem certeza que deseja eliminar este filme?</p>
+        <button id="nobutton">Não</button>
+        <button id="yesbutton">Sim</button>
+      </div>
+    </div>
+    <div id="container"></div>
+
+   
     <div id="app"></div>
     <section class="addNewFilm" id="addNewFilmModal">
       <div class="modalContent">
@@ -21,7 +50,7 @@
 
         <form action="" method="post" id="addFilmForm">
           <label for="title">Titulo:</label>
-          <input type="text" id="title" name="title" />
+          <input type="text" id="titleinput" name="title" />
           <span class="span-required">Nome deve ter no mínimo 3 caracteres</span
           ><br />
 
@@ -52,5 +81,19 @@
         </form>
       </div>
     </section>
+
+    <div id="content">
+      <button class="close">X</button>
+      <img id="j" alt="" />
+      <h4 id="title">Title:</h4>
+      <h4 id="gender">Gender:</h4>
+      <h4 id="year">Year:</h4>
+      <h4 id="rate">Rate:</h4>
+      <h4 id="description">Description:</h4>
+    </div>
+
+    <footer>
+      <p>&copy;2025 Feito com amor e carinho pelos alunos do B4F</p>
+    </footer>
   </body>
 </html>

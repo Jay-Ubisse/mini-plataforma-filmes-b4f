@@ -1,4 +1,5 @@
 // Arquivo principal que inicializa a aplicação
+import { updateFilm } from "./update-film.js";
 import { addBtn } from "./create-film.js";
 import { isFieldValidated } from "./create-film.js";
 import { createFilm } from "./create-film.js";
@@ -16,25 +17,35 @@ import { createFilm } from "./create-film.js";
 addBtn();
 document.getElementById("addFilmForm").addEventListener("submit", (e) => {
   e.preventDefault();
+
   //isFieldValidated(); Verificar isso
   const response = createFilm();
   alert(response.message);
 });
 
-/*
 
+/*
 ============== GROUP 2 LOGIC ==========
-
 */
 
 /*
-
 ============== GROUP 3 LOGIC ==========
-
 */
 
-/*
+import { films } from "../data/db.js";
+import { listfilms } from "./get-films.js";
+listfilms(films)
 
+
+
+
+/*
 ============== GROUP 4 LOGIC ==========
 
 */
+
+import { showDetails } from "./film-details";
+
+let viewDetails = document.getElementById("details")
+viewDetails.onclick = showDetails()
+

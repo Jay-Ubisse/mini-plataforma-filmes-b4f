@@ -135,11 +135,13 @@ export function createFilm() {
   actualDb.push(data);
 
   localStorage.setItem("films", JSON.stringify(actualDb));
+
   console.log({
     status: 201,
     message: "Filme cadastrado com sucesso!",
     body: actualDb,
   });
+
 
   return {
     status: 201,
