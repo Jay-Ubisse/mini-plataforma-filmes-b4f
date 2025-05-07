@@ -1,30 +1,16 @@
 // Função para editar filme existente
-<<<<<<< HEAD
 
-function setAndUpdate(id) {
-  localStorage.setItem("id", id);
-  updateFilm();
-}
-
-//create form and styling
-export function updateFilm(id) {
-=======
-import {
-  db
-} from "./utils.js";
-
-
+import { db } from "./utils.js";
 
 //create form and styling
 
 export function updateFilm(idButton) {
   const value = idButton;
-  const modal = document.getElementById("modal")
->>>>>>> 36deb8b2857c979a0651a03297d77bfb68d5ec10
+  const modal = document.getElementById("modal");
   const form = document.createElement("form");
-  form.id = "form"
+  form.id = "form";
   form.style.maxWidth = "500px";
-  form.style.minWidth = "300px"
+  form.style.minWidth = "300px";
   form.style.width = "90%";
   form.style.backgroundColor = "#001238";
   form.style.color = "#cfd6fa";
@@ -36,13 +22,8 @@ export function updateFilm(idButton) {
   form.style.top = "5%";
   form.style.boxShadow = "0px 10px 50px #000000";
   form.style.position = "fixed";
-<<<<<<< HEAD
-  form.style.left = "50%";
-  form.style.zIndex = "1000";
-=======
   form.style.left = "40%";
   form.style.zIndex = "99";
->>>>>>> 36deb8b2857c979a0651a03297d77bfb68d5ec10
 
   form.innerHTML = `
         <span id= "closeButton">&times;</span>
@@ -60,26 +41,6 @@ export function updateFilm(idButton) {
         <input type="url"  id="imageUrlInput" name = "imageUrl" required><br>
         <button  id="saveButton" >Salvar</button> `;
 
-<<<<<<< HEAD
- <label for="Gender">Genero</label>
- <input type="text" id= "gender" name="gender" required><br>
- 
- <label for="year">Ano</label>
- <input type="number" max="2025" id= "year" name="year" required><br>
-
- <label for="rate">Avaliação</label>
- <input type="number"  min="1" max="5" id="rate" name="rate" required><br>
-
- <label for="description">Descrição</label>
- <textarea type="text"  id="description" name="description"></textarea>
-
- <label for="imageUrl">Url da Imagem</label>
- <input type="url"  id="imageUrl" name = "imageUrl" required><br>
- <button  id="button" >Salvar</button>
- `;
-
-=======
->>>>>>> 36deb8b2857c979a0651a03297d77bfb68d5ec10
   //styling the close button
   const closeButton = form.querySelector("#closeButton");
   closeButton.style.position = "absolute";
@@ -87,35 +48,19 @@ export function updateFilm(idButton) {
   closeButton.style.right = "25px";
   closeButton.style.fontSize = "24px";
   closeButton.style.cursor = "pointer";
-<<<<<<< HEAD
-  closeButton.style.color = "red";
-
-  //show the form
-  document.body.appendChild(form);
-
-  const film = films.find((film) => film.id === Number(1));
-
-  if (!film) {
-    alert("Filme não encontrado com o ID: " + id);
-    return;
-  }
-
-  preFillForm(film);
-=======
 
   closeButton.addEventListener("mouseover", () => {
     closeButton.style.fontSize = "36";
     closeButton.style.color = "red";
-  })
+  });
   closeButton.addEventListener("mouseout", () => {
     closeButton.style.fontSize = "24";
     closeButton.style.color = "#cfd6fa";
-  })
+  });
 
   //show the form
   document.body.appendChild(form);
-  preFillForm(value)
->>>>>>> 36deb8b2857c979a0651a03297d77bfb68d5ec10
+  preFillForm(value);
 
   //save the form
   const saveButton = form.querySelector("#saveButton");
@@ -123,57 +68,35 @@ export function updateFilm(idButton) {
   saveButton.style.padding = "6px 12px";
   saveButton.style.cursor = "pointer";
   saveButton.addEventListener("mouseover", () => {
-    saveButton.style.backgroundColor = '#669bbc'
-  })
+    saveButton.style.backgroundColor = "#669bbc";
+  });
 
   saveButton.addEventListener("mouseout", () => {
-    saveButton.style.backgroundColor = '#cfd6fa'
-  })
+    saveButton.style.backgroundColor = "#cfd6fa";
+  });
 
   saveButton.addEventListener("click", () => {
-
     const validate = InputsValidation(form);
 
-    if (validate.valid){
+    if (validate.valid) {
       saveUpdateFilm(value);
       document.body.removeChild(form);
+    } else {
+      alert("Erro, tente novamente ");
     }
-    else { 
-      alert ("Erro, tente novamente ");
-    } 
 
     modal.style.display = "none";
-  })
+  });
 
   //close the form
   closeButton.addEventListener("click", () => {
     modal.style.display = "none";
     document.body.removeChild(form);
   });
-
 }
 
 //fill the form
-<<<<<<< HEAD
-function preFillForm(films) {
-  document.getElementById("title").value = films.title;
-  document.getElementById("gender").value = films.gender;
-  document.getElementById("year").value = films.year;
-  document.getElementById("rate").value = films.rate;
-  document.getElementById("description").value = films.description;
-  document.getElementById("imageUrl").value = films.imageUrl;
-}
 
-function isValidateForm() {
-  let valido = true;
-  const titleInput = document.getElementById("title");
-  const genderInput = document.getElementById("gender").value;
-  const yearInput = parseInt(document.getElementById("year").value);
-  const rateInput = parseFloat(document.getElementById("rate").value);
-  const imageUrlInput = document.getElementById("imageUrl").value;
-  const currentYear = new Date().getFullYear();
-  const titleInputEl = document.getElementById("title");
-=======
 function preFillForm(value) {
   const films = JSON.parse(db);
   const editFilm = films.find((film) => film.id === Number(value));
@@ -184,18 +107,14 @@ function preFillForm(value) {
     document.getElementById("rateInput").value = editFilm.rate;
     document.getElementById("descriptionInput").value = editFilm.description;
     document.getElementById("imageUrlInput").value = editFilm.imageUrl;
->>>>>>> 36deb8b2857c979a0651a03297d77bfb68d5ec10
-
   }
 }
 
-
-  //  Validate the form
+//  Validate the form
 function InputsValidation() {
-    
   const titleInput = document.getElementById("titleInput");
   const genderInput = document.getElementById("genderInput");
-  const yearInput =  document.getElementById("yearInput");
+  const yearInput = document.getElementById("yearInput");
   const rateInput = document.getElementById("rateInput");
   const descriptionInput = document.getElementById("descriptionInput");
   const imageUrlInput = document.getElementById("imageUrlInput");
@@ -204,65 +123,73 @@ function InputsValidation() {
 
   // Title Validation
   if (titleInput.value.trim() === "") {
-      titleInput.style.borderColor = "red";
-      alert("O título é obrigatório");
-      valid = false;
+    titleInput.style.borderColor = "red";
+    alert("O título é obrigatório");
+    valid = false;
   } else {
-      titleInput.style.borderColor = "green";
+    titleInput.style.borderColor = "green";
   }
 
   // Gender Validation
   if (genderInput.value.trim() === "") {
-      genderInput.style.borderColor = "red";
-      alert("O gênero é obrigatório");
-      valid = false;
+    genderInput.style.borderColor = "red";
+    alert("O gênero é obrigatório");
+    valid = false;
   } else {
-      genderInput.style.borderColor = "green";
+    genderInput.style.borderColor = "green";
   }
 
   // Year Validation
   const Actualyear = new Date().getFullYear();
-  if (yearInput.value < 1888 || yearInput.value > Actualyear ) { 
-      yearInput.style.borderColor = "red";
-      alert(`O ano deve estar entre 1888 e ${Actualyear}`);
-      valid = false;
+  if (yearInput.value < 1888 || yearInput.value > Actualyear) {
+    yearInput.style.borderColor = "red";
+    alert(`O ano deve estar entre 1888 e ${Actualyear}`);
+    valid = false;
   } else {
-      yearInput.style.borderColor = "green";
+    yearInput.style.borderColor = "green";
   }
 
-  // Rate validation 
-  if (rateInput.value < 0 || rateInput.value > 5|| rateInput.value.trim() === "") {
-      rateInput.style.borderColor = "red";
-      alert("A avaliação deve estar entre 0 e 5");
-      valid = false;
-  } else {    
-      rateInput.style.borderColor = "green";
+  // Rate validation
+  if (
+    rateInput.value < 0 ||
+    rateInput.value > 5 ||
+    rateInput.value.trim() === ""
+  ) {
+    rateInput.style.borderColor = "red";
+    alert("A avaliação deve estar entre 0 e 5");
+    valid = false;
+  } else {
+    rateInput.style.borderColor = "green";
   }
 
   // URL validation
-  if (!imageUrlInput.value.startsWith("http://") && !imageUrlInput.value.startsWith("https://")) {
-      imageUrlInput.style.borderColor = "red";
-      alert("A url da imagem deve começar com http:// ou https://");
-      valid = false;
+  if (
+    !imageUrlInput.value.startsWith("http://") &&
+    !imageUrlInput.value.startsWith("https://")
+  ) {
+    imageUrlInput.style.borderColor = "red";
+    alert("A url da imagem deve começar com http:// ou https://");
+    valid = false;
   } else {
-      imageUrlInput.style.borderColor = "green";
+    imageUrlInput.style.borderColor = "green";
   }
 
-  // Description validation 
-  if (descriptionInput.value.length > 500||descriptionInput.value.trim() === "") {
-      descriptionInput.style.borderColor = "red";
-      alert("A descrição não pode ter mais de 500 caracteres");
-      valid = false;
+  // Description validation
+  if (
+    descriptionInput.value.length > 500 ||
+    descriptionInput.value.trim() === ""
+  ) {
+    descriptionInput.style.borderColor = "red";
+    alert("A descrição não pode ter mais de 500 caracteres");
+    valid = false;
   } else {
-      descriptionInput.style.borderColor = "green";
+    descriptionInput.style.borderColor = "green";
   }
 
   return {
-      valid: valid,
-      
+    valid: valid,
   };
 }
-
 
 //save the update film
 function saveUpdateFilm(value) {
@@ -278,12 +205,9 @@ function saveUpdateFilm(value) {
     film.imageUrl = document.getElementById("imageUrlInput").value;
 
     localStorage.setItem("films", JSON.stringify(films));
-    alert("Filme salvo com sucesso!");
+    console.log(films);
+    alert("Dados do filme actualizados com sucesso!");
   }
 }
 
-
 // create modal
-
-
-
