@@ -1,19 +1,40 @@
 // Arquivo principal que inicializa a aplicação
 import { updateFilm } from "./update-film.js";
-//import { listfilms } from "./get-films.js";
-//listfilms(films)
+
+import { showDetails } from "./film-details";
+import { addBtn } from "./create-film.js";
+import { isFieldValidated } from "./create-film.js";
+import { createFilm } from "./create-film.js";
+import { films } from "../data/db.js";
+import { listfilms } from "./get-films.js";
+
+
 /*
 
 ============== GROUP 1 LOGIC ==========
 
 */
+//add new film button
+/*document.addEventListener(`DOMContentLoaded`, () => {
+  newFilm();
+});*/
+
+addBtn();
+document.getElementById("addFilmForm").addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  //isFieldValidated(); Verificar isso
+  const response = createFilm();
+  alert(response.message);
+});
+
+
 
 /*
-
 ============== GROUP 2 LOGIC ==========
+*/
 
-<<<<<<< HEAD
-*/ /*
+
 edit_button.addEventListener("click",()=>{ 
     updateFilm();
 })*/
@@ -42,17 +63,23 @@ updateButton.forEach((updateButton) => {
   });
 });
 
-/*
-
-
-
-    ===========GROUP 3 LOGIC === === === =
-
-    *
-    /
 
 /*
+============== GROUP 3 LOGIC ==========
+*/
 
+
+listfilms(films)
+
+
+
+
+/*
 ============== GROUP 4 LOGIC ==========
 
 */
+
+
+let viewDetails = document.getElementById("details")
+viewDetails.onclick = showDetails()
+
