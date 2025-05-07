@@ -17,15 +17,10 @@ import { createFilm } from "./create-film.js";
 addBtn();
 document.getElementById("addFilmForm").addEventListener("submit", (e) => {
   e.preventDefault();
-<<<<<<< HEAD
-  isFieldValidated();
-  createFilm();
-    
-=======
+
   //isFieldValidated(); Verificar isso
   const response = createFilm();
   alert(response.message);
->>>>>>> 2c2ee29ad05453c078578d7f6d6fe4ce19131bf5
 });
 
 
