@@ -1,21 +1,23 @@
 // Função para listar todos os filmes
 
 import {films} from "../data/db.js";
+import { deleteFilm } from "./delete-film.js";
+import { getFilm } from "./film-details.js";
 
 
 
 export function listfilms() {
   window.addEventListener("load", () => {
+    const container = document.getElementById("container");
     listFilms(films)
   });
 }
 
-const container = document.getElementById("container");
 
 function listFilms(films) {
   films.forEach((film) => {
     const card = document.createElement("div");
-    card.classList.add("app");
+    card.className = "app";
 
     let img = document.createElement("img");
     img.src = film.imageUrl;
@@ -28,20 +30,24 @@ function listFilms(films) {
     p.textContent = film.description;
     
     const detailsBtn = document.createElement("button");
-    detailsBtn.classList.add("btn");
+    detailsBtn.className = "btn";
     detailsBtn.textContent = "Details";
-    detailsBtn.addEventListener("click", () => {});
+    detailsBtn.addEventListener("click", () => {
+      getFilm()
+    });
 
     const editBtn = document.createElement("button");
-    editBtn.classList.add("btn1");
+    editBtn.className = "btn1";
     editBtn.textContent = "Edit";
-    editBtn.addEventListener("click", () => {});
+    editBtn.addEventListener("click", () => {
+      getFilm()
+    });
 
     const deleteBtn = document.createElement("button");
-    deleteBtn.classList.add("btn2");
+    deleteBtn.className = "btn2";
     deleteBtn.textContent = "Delete";
     deleteBtn.addEventListener("click", () => {
-      
+      deleteFilm ()
     }); 
 
     card.appendChild(img);
@@ -53,4 +59,4 @@ function listFilms(films) {
     container.appendChild(card);    
   });
 
-}
+};

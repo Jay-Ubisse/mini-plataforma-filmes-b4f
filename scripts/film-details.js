@@ -1,68 +1,28 @@
-import { films } from "../data/db.js"
-
+import { films } from "../data/db.js";
 
 const detailsDiv = document.getElementById("content");
 
+let title = document.getElementById("title");
+let picture = document.getElementById("picture");
+let gender = document.getElementById("gender");
+let year = document.getElementById("year");
+let rate = document.getElementById("rate");
+let description = document.getElementById("description");
+const message=document.createElement("h3")
+message.textContent="Filme não encontrado!"
+export function getFilm(value) {
+  const film = films.find((film) => film.id === Number(value));
 
-const detailsButton = document.getElementById("details");
+  if (!film)  return detailsDiv.appendChild(message);
 
-
-const closeButton = document.getElementsByClassName("close")[0];
-
-
-export function showDetails() {
-  detailsDiv.style.display = "block";
-  detailsFilms(value)
-  showDetails()
-  
-}
-  closeButton.onclick = function() {
-  detailsDiv.style.display = "none";
-}
-
-
-
-
-let title=document.getElementById("title")
-let image=document.getElementById("image")
-let gender=document.getElementById("gender")
-let year=document.getElementById("year")
-let rate=document.getElementById("rate")
-let description=document.getElementById("description")
+ return ` ${title.innerHTML=film.title}
+          ${picture.src=("src",film.imageUrl)} 
+          ${gender.innerHTML=film.gender} 
+          ${year.innerHTML=film.year} 
+          ${rate.innerHTML=film.rate}+
+          ${description.innerHTML=film.description}`
 
 
 
-let db = localStorage.getItem("films");
-let jsonDB = JSON.parse(db);
-
-function renderFilms(jsonDB) {
-  detailsDiv.innerHTML = "";
-  jsonDB.map((film) => {
-    title.textContent = film.title;
-    image.textContent = film.imageUrl;
-    gender.textContent = film.gender;
-    year.textContent = film.year;
-    rate.textContent = film.rate;
-    description.textContent = film.description;
-    detailsDiv.appendChild(title);
-    detailsDiv.appendChild(gender);
-    detailsDiv.appendChild(year);
-    detailsDiv.appendChild(rate);
-    detailsDiv.appendChild(description);
-
-
-  });
-}
-
-let value=detailsButton.getAttribute("value")
-function detailsFilms(value){
- for(let i=0;i<films.length;i++){
-  if(value===films[0].id){
-    renderFilms(jsonDB);
-  
-  }
- }
-
-  
 }
 

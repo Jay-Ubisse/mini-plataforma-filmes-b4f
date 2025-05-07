@@ -1,22 +1,20 @@
-// Arquivo principal que inicializa a aplicação
-import { updateFilm } from "./update-film.js";
 
+// Importações de módulos
+import { listfilms } from "./get-films.js";
+import { deleteFilm, removeElement } from "../scripts/delete-film.js";
+import { films } from "../data/db.js";
+import { updateFilm } from "./update-film.js";
 import { showDetails } from "./film-details";
 import { addBtn } from "./create-film.js";
 //import { isFieldValidated } from "./create-film.js";
 import { createFilm } from "./create-film.js";
-import { films } from "../data/db.js";
-import { listfilms } from "./get-films.js";
+
+
 
 /*
 
 ============== GROUP 1 LOGIC ==========
-
 */
-//add new film button
-/*document.addEventListener(`DOMContentLoaded`, () => {
-  newFilm();
-});*/
 
 addBtn();
 document.getElementById("addFilmForm").addEventListener("submit", (e) => {
@@ -59,16 +57,19 @@ updateButton.forEach((updateButton) => {
   });
 });
 
-/*
-============== GROUP 3 LOGIC ==========
-*/
+// ========== GRUPO 3: Listagem ==========
 
 listfilms(films);
 
-/*
-============== GROUP 4 LOGIC ==========
+const deletebtn = document.getElementById("deleteButton");
+const value = deletebtn.getAttribute("value");
+deletebtn.addEventListener("click", () => {
+  deleteFilm();
+  removeElement(value);
+});
 
-*/
 
-let viewDetails = document.getElementById("details");
-viewDetails.onclick = showDetails();
+
+// ========== GRUPO 4 ==========
+
+
